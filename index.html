@@ -1,0 +1,853 @@
+<!doctype html><html lang="tr"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Gecekondu Event: Manavgat, Antalya'da 350 kişilik kır bahçesi, Üçgen Ev, şömineli loca ve klasik araba köşesi. Düğün, nişan, kına, nikah ve özel günler için her şey dahil organizasyon; 2026–2027 rezervasyonları açık.">
+<meta name="theme-color" content="#0d1324">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Gecekondu Event">
+<meta property="og:title" content="Gecekondu Event — Doğanın içinde unutulmaz anlar">
+<meta property="og:description" content="Manavgat'ta 350 kişilik açık hava mekânı. Düğün, kına, nikah, nişan ve özel günler için her şey dahil organizasyon.">
+<meta property="og:image" content="assets/images/48-wedding-a-frame-ceremony-wide-lg.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/logo-120.png" type="image/png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"EventVenue","name":"Gecekondu Event","description":"Manavgat'ta 350 kişilik açık hava kır bahçesinde düğün, nişan, kına, nikah ve özel gün organizasyonları.","maximumAttendeeCapacity":350,"address":{"@type":"PostalAddress","addressLocality":"Manavgat","addressRegion":"Antalya","addressCountry":"TR"},"telephone":"+90 501 648 07 46","sameAs":["https://www.instagram.com/gecekonduevent/","https://www.instagram.com/gecekondumedya/"]}</script><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Gecekondu Event</title>
+<script>document.documentElement.lang = 'tr';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600;700&display=swap">
+<link rel="preload" as="image" href="assets/frames/f001.webp" media="(min-aspect-ratio: 4/5)">
+<link rel="preload" as="image" href="assets/frames-p/f001.webp" media="(max-aspect-ratio: 4/5)">
+<style>
+/* Düzen: kaydırmayla ilerleyen drone filmi zemininde cam paneller ve iki 3D sahne (fotoğraf tüneli, üçgen prizma). Gece temalı tek görünüm. */
+:root{color-scheme:dark;
+  --night:#0d1324; --night-2:#141b33; --ink:#f6efe3; --muted:#c9bfae; --dim:#8f8a82;
+  --gold:#f0b96b; --gold-2:#ffd59a; --clay:#b8553e; --roof:#7d2626;
+  --glass:rgba(13,17,32,.58); --glass-2:rgba(20,26,48,.72); --line:rgba(255,224,180,.16);
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'DM Sans',system-ui,Arial,sans-serif;
+  --r:22px; --pad:clamp(18px,4vw,56px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--night);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+[hidden]{display:none!important}
+::selection{background:var(--gold);color:#1b1206}
+.skip{position:fixed;left:16px;top:-60px;z-index:100;background:var(--gold);color:#1b1206;padding:10px 16px;border-radius:10px;text-decoration:none}
+.skip:focus{top:16px}
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:6px}
+
+/* ---------- Film katmanı (scroll-scrub drone videosu, 3D eğimli) ---------- */
+.film{position:fixed;inset:0;z-index:0;overflow:hidden;perspective:1200px;background:#0b0d16}
+.film__tilt{position:absolute;left:-8vw;top:-8vh;width:116vw;height:116vh;transform-style:preserve-3d;will-change:transform}
+#film{width:100%;height:100%;display:block}
+#bokeh{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:screen}
+.film__shade{--p:0;position:absolute;inset:0;pointer-events:none;
+  background:
+   linear-gradient(90deg,rgba(8,9,16,calc(.62 - var(--p)*.25)) 0%,rgba(8,9,16,calc(.25 - var(--p)*.15)) 45%,rgba(8,9,16,.05) 70%),
+   linear-gradient(180deg,rgba(8,9,16,.55) 0%,transparent 22%,transparent 70%,rgba(8,9,16,.75) 100%),
+   radial-gradient(120% 90% at 50% 45%,transparent 50%,rgba(4,5,10,.6) 100%)}
+.grain{position:absolute;inset:-50%;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-2%)}60%{transform:translate(-2%,-4%)}80%{transform:translate(4%,2%)}100%{transform:translate(0,0)}}
+main,.footer{position:relative;z-index:2}
+.timebar{position:fixed;left:var(--pad);bottom:calc(26px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);pointer-events:none}
+.timebar i{display:block;width:120px;height:1px;background:rgba(255,255,255,.18)}
+.timebar b{display:block;height:100%;background:var(--gold);transform-origin:left;transform:scaleX(0)}
+
+/* ---------- Film yükleme çizgisi (engellemez) ---------- */
+.loadbar{position:fixed;left:0;right:0;top:0;z-index:70;padding-top:env(safe-area-inset-top,0px);pointer-events:none;transition:opacity .8s .4s}
+.loadbar span{display:block;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-2));transform-origin:left;transform:scaleX(0);transition:transform .4s ease}
+.loadbar.is-done{opacity:0}
+
+/* ---------- Navigasyon ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:24px;padding:calc(18px + env(safe-area-inset-top,0px)) var(--pad) 18px;transition:background .4s,padding .4s,backdrop-filter .4s}
+.nav.is-scrolled{background:rgba(10,13,26,.62);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);padding-top:calc(12px + env(safe-area-inset-top,0px));padding-bottom:12px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--serif);font-size:24px;line-height:1;letter-spacing:.01em}
+.brand small{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.28em;color:var(--gold);margin-top:4px}
+.brand--lg{font-size:32px}
+.nav__links{display:flex;gap:28px;margin-left:auto}
+.nav__links a{text-decoration:none;font-size:14px;color:var(--muted);position:relative;padding:4px 0;transition:color .25s}
+.nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.nav__links a:hover,.nav__links a.is-active{color:var(--ink)}
+.nav__links a:hover::after,.nav__links a.is-active::after{transform:scaleX(1)}
+.nav__burger{display:none;margin-left:auto;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:rgba(0,0,0,.25);cursor:pointer;padding:0}
+.nav__burger span{display:block;width:18px;height:1.5px;background:var(--ink);margin:5px auto;transition:transform .3s}
+.nav.is-open .nav__burger span:first-child{transform:translateY(3.25px) rotate(45deg)}
+.nav.is-open .nav__burger span:last-child{transform:translateY(-3.25px) rotate(-45deg)}
+
+/* ---------- Butonlar ---------- */
+.btn{--h:52px;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:var(--h);padding:0 26px;border-radius:999px;font:600 15px/1 var(--sans);text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .25s,box-shadow .3s,background .3s,color .3s;white-space:nowrap}
+.btn--sm{--h:42px;padding:0 20px;font-size:14px}
+.btn--gold{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#22160a;box-shadow:0 8px 30px -8px rgba(240,185,107,.6)}
+.btn--gold:hover{transform:translateY(-2px);box-shadow:0 14px 40px -8px rgba(240,185,107,.75)}
+.btn--ghost{border-color:rgba(255,236,210,.35);color:var(--ink);background:rgba(10,12,24,.25);backdrop-filter:blur(6px)}
+.btn--ghost:hover{border-color:var(--gold);color:var(--gold-2)}
+.round{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--glass);color:var(--ink);font-size:18px;cursor:pointer;transition:border-color .3s,color .3s}
+.round:hover{border-color:var(--gold);color:var(--gold)}
+.link{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(240,185,107,.4);padding-bottom:2px}
+
+/* ---------- Tipografi ---------- */
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.02;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(40px,5.4vw,76px);margin-bottom:18px}
+h2 em,h1 em{font-style:italic;color:var(--gold-2)}
+h3{font-size:26px}
+.eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:0 0 18px;display:flex;align-items:center;gap:10px}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:#7be08a;box-shadow:0 0 0 0 rgba(123,224,138,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(123,224,138,0)}100%{box-shadow:0 0 0 0 rgba(123,224,138,0)}}
+.lead{font-size:clamp(16px,1.25vw,18.5px);color:var(--muted);max-width:56ch;margin:0 0 26px}
+
+/* ---------- Hero ---------- */
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px var(--pad) clamp(40px,8vh,90px);position:relative}
+.hero__title{font-size:clamp(56px,10vw,152px);line-height:.92;margin-bottom:26px;text-shadow:0 10px 60px rgba(0,0,0,.45)}
+.hero__title span{display:block}
+.hero__title em{display:block;padding-left:.6em}
+.hero__lead{font-size:clamp(17px,1.5vw,21px);max-width:44ch;color:var(--ink);opacity:.86;margin:0 0 34px}
+.hero__actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero__facts{list-style:none;margin:0;padding:0;position:absolute;right:var(--pad);bottom:clamp(40px,8vh,90px);display:grid;gap:18px;text-align:right}
+.hero__facts b{display:block;font-family:var(--serif);font-size:44px;font-weight:500;line-height:1;color:var(--gold-2)}
+.hero__facts span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.scroll-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);display:grid;justify-items:center;gap:10px}
+.scroll-hint span{width:1px;height:42px;background:linear-gradient(var(--gold),transparent);animation:drip 2.2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- Bölümler ---------- */
+.section{min-height:115vh;display:flex;align-items:center;padding:14vh var(--pad)}
+.section--right{justify-content:flex-end}
+.section--wide{justify-content:center}
+.panel{width:min(560px,100%);background:var(--glass);border:1px solid var(--line);border-radius:var(--r);padding:clamp(26px,3.4vw,46px);backdrop-filter:blur(18px) saturate(130%);-webkit-backdrop-filter:blur(18px) saturate(130%);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.wide{width:min(1200px,100%)}
+.wide__head{max-width:720px;margin-bottom:46px}
+.wide__head--center{margin-inline:auto;text-align:center}
+.wide__head--center .lead,.wide__head--center .eyebrow{margin-inline:auto;justify-content:center}
+
+/* neden */
+.why{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.why__item{padding:18px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06);transition:border-color .3s,transform .3s}
+.why__item:hover{border-color:var(--line);transform:translateY(-3px)}
+.why__icon{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:12px;background:rgba(240,185,107,.12);margin-bottom:12px}
+.why__icon svg{width:20px;height:20px;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.why__item h3{font-size:22px;margin-bottom:6px}
+.why__item p{margin:0;font-size:14px;color:var(--muted);line-height:1.5}
+
+/* köşeler */
+.corner{min-height:120vh}
+.panel--corner{width:min(440px,100%)}
+.panel--corner h2{font-size:clamp(46px,5vw,72px)}
+.corner__photo{margin:0;border-radius:16px;overflow:hidden;aspect-ratio:4/3;border:1px solid var(--line)}
+.corner__photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.corner__photo:hover img{transform:scale(1.05)}
+
+/* hizmetler */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;perspective:1200px}
+.svc{position:relative;padding:30px 28px 32px;border-radius:var(--r);background:var(--glass-2);border:1px solid var(--line);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transform-style:preserve-3d;transition:transform .25s ease-out,border-color .3s;overflow:hidden}
+.svc::before{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(255,200,130,.16),transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none}
+.svc:hover{border-color:rgba(240,185,107,.45)}
+.svc:hover::before{opacity:1}
+.svc__n{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--gold);display:block;margin-bottom:34px;transform:translateZ(30px)}
+.svc h3{font-size:30px;margin-bottom:8px;transform:translateZ(40px)}
+.svc p{margin:0;color:var(--muted);font-size:15px;transform:translateZ(20px)}
+
+/* etkinlikler */
+.events{list-style:none;margin:0 0 30px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+.events li{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column}
+.events b{font-family:var(--serif);font-weight:500;font-size:24px;line-height:1.1}
+.events span{font-size:13px;color:var(--dim)}
+
+/* medya */
+.panel--media{width:min(760px,100%);display:grid;grid-template-columns:240px 1fr;gap:34px;align-items:center}
+.media__photo{margin:0;border-radius:16px;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line);transform:rotate(-2.5deg);box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.media__photo img{width:100%;height:100%;object-fit:cover}
+
+/* galeri — CSS 3D halka */
+.carousel{position:relative;height:clamp(340px,52vh,520px);perspective:1600px;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;outline:none}
+.carousel.is-drag{cursor:grabbing}
+.carousel__ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
+.gcard{position:absolute;width:var(--cw,250px);height:calc(var(--cw,250px)*1.3);left:calc(var(--cw,250px)/-2);top:calc(var(--cw,250px)*-.65);border-radius:18px;overflow:hidden;border:1px solid rgba(255,230,190,.22);background:#1a1f33;box-shadow:0 30px 60px -25px rgba(0,0,0,.8);backface-visibility:hidden;cursor:pointer;padding:0}
+.gcard img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.gcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,7,15,.6));pointer-events:none}
+.gcard span{position:absolute;left:16px;bottom:14px;z-index:1;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#fff}
+.carousel__ctrl{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:26px}
+.carousel__cap{min-width:200px;text-align:center;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--gold-2)}
+
+/* rezervasyon */
+.booking{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:start;background:var(--glass);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,4vw,56px);backdrop-filter:blur(20px) saturate(130%);-webkit-backdrop-filter:blur(20px) saturate(130%);box-shadow:0 50px 100px -40px rgba(0,0,0,.7)}
+.booking h2{font-size:clamp(38px,4.4vw,62px)}
+.ask{margin-top:10px;padding-top:24px;border-top:1px solid var(--line)}
+.ask__title{margin:0 0 12px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.ask__chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);text-decoration:none;font-size:14px;transition:all .25s}
+.chip:hover{border-color:var(--gold);color:var(--gold-2);background:rgba(240,185,107,.08)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{grid-column:1/-1;display:grid;gap:8px}
+.field--half{grid-column:span 1}
+.field label{font-size:13px;color:var(--muted)}
+.field label i{color:var(--gold);font-style:normal}
+.field small{color:var(--dim)}
+.field input:not([type=range]):not([type=checkbox]),.field select,.field textarea{width:100%;min-height:50px;padding:12px 16px;border-radius:14px;border:1px solid rgba(255,236,210,.18);background:rgba(5,8,18,.45);color:var(--ink);font:15px var(--sans);transition:border-color .25s,background .25s;color-scheme:dark}
+.field textarea{resize:vertical;min-height:96px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:rgba(5,8,18,.65)}
+.field .is-invalid{border-color:#e7836f!important}
+.range{display:flex;align-items:center;gap:16px}
+.range input{flex:1;accent-color:var(--gold)}
+.range output{min-width:84px;text-align:right;font-family:var(--serif);font-size:22px;color:var(--gold-2)}
+.form__err{grid-column:1/-1;margin:0;min-height:1em;color:#f0a090;font-size:14px}
+.form__actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px}
+.form__note{grid-column:1/-1;margin:0;font-size:12.5px;color:var(--dim)}
+
+/* footer */
+.footer{padding:18vh var(--pad) 28px;background:linear-gradient(180deg,transparent,rgba(5,7,15,.85) 30%)}
+.footer__grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px;max-width:1200px;margin:0 auto 60px}
+.footer .footer__h{font-family:var(--sans);line-height:1.4;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:6px 0 16px;font-weight:600}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;color:var(--muted);font-size:15px}
+.footer a{text-decoration:none;transition:color .25s}
+.footer a:hover{color:var(--gold-2)}
+.footer__tag{color:var(--muted);margin:18px 0 0;font-family:var(--serif);font-size:22px;line-height:1.3}
+.footer__bottom{max-width:1200px;margin:0 auto;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--dim)}
+
+/* WhatsApp: Instagram'ın yanında ikincil kanal (sade çerçeve, yeşil simge) */
+.wa{width:18px;height:18px;flex:none;fill:none;stroke:#25d366;stroke-width:1.7;stroke-linejoin:round}
+.wa .wa__h{fill:#25d366;stroke:none}
+.btn--wa{border-color:rgba(37,211,102,.45);color:var(--ink);background:rgba(10,12,24,.35)}
+.btn--wa:hover{border-color:#25d366;background:rgba(37,211,102,.1);transform:translateY(-2px)}
+.btn--quiet{--h:46px;font-weight:500;font-size:14px}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:150;background:rgba(5,7,15,.92);backdrop-filter:blur(10px);display:grid;place-items:center;padding:60px 70px}
+.lightbox figure{margin:0;max-width:min(1100px,100%);max-height:100%;display:grid;gap:14px;justify-items:center}
+.lightbox img{max-height:78vh;width:auto;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lightbox figcaption{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--gold-2)}
+.lightbox__close{position:absolute;top:18px;right:22px;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:28px;cursor:pointer}
+.lightbox__nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:rgba(0,0,0,.3);color:var(--ink);font-size:20px;cursor:pointer}
+.lightbox__nav--prev{left:16px}.lightbox__nav--next{right:16px}
+
+/* reveal */
+.reveal{transform:translateY(26px);transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.reveal.is-in{transform:none}
+.hero .reveal:nth-child(2){transition-delay:.12s}.hero .reveal:nth-child(3){transition-delay:.24s}.hero .reveal:nth-child(4){transition-delay:.36s}
+
+/* ---------- Duyarlı ---------- */
+@media (max-width:1080px){
+  .services{grid-template-columns:1fr 1fr}
+  .booking{grid-template-columns:1fr}
+  .footer__grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .nav__links{position:fixed;inset:0;flex-direction:column;justify-content:center;align-items:center;gap:26px;background:rgba(8,10,20,.94);backdrop-filter:blur(16px);opacity:0;pointer-events:none;transition:opacity .35s;margin:0}
+  .nav__links a{font-family:var(--serif);font-size:34px;color:var(--ink)}
+  .nav.is-open .nav__links{opacity:1;pointer-events:auto}
+  .nav__burger{display:block;position:relative;z-index:2}
+  .panel--media{grid-template-columns:1fr}
+  .media__photo{max-width:260px}
+}
+@media (max-width:760px){
+  body{font-size:15px}
+  .hero{padding-bottom:110px}
+  .hero__title em{padding-left:0}
+  .hero__facts{position:static;grid-template-columns:repeat(3,1fr);text-align:left;margin-top:34px;gap:10px}
+  .hero__facts b{font-size:32px}
+  .hero__facts span{font-size:10px;letter-spacing:.12em}
+  .scroll-hint{display:none}
+  .section,.section--right{align-items:flex-end;justify-content:center;padding:12vh 16px 8vh}
+  .corner{min-height:115vh}
+  .panel{padding:24px 20px}
+  .why{grid-template-columns:1fr}
+  .services{grid-template-columns:1fr}
+  .events{grid-template-columns:1fr 1fr;gap:0 14px}
+  .events b{font-size:20px}
+  .form{grid-template-columns:1fr}
+  .field--half{grid-column:1/-1}
+  .booking{padding:22px 18px;border-radius:22px}
+  .footer__grid{grid-template-columns:1fr}
+  .lightbox{padding:60px 12px}
+  .lightbox__nav{top:auto;bottom:16px;transform:none}
+  .carousel{height:400px}
+}
+
+/* ---------- Hero satır animasyonu ---------- */
+.hero__title .line{display:block;overflow:hidden;padding-bottom:.06em}
+.hero__title .line>*{display:block;animation:lineUp 1.1s cubic-bezier(.16,.8,.2,1) both}
+.hero__title .line:nth-child(2)>*{animation-delay:.12s}
+@keyframes lineUp{from{transform:translateY(105%)}to{transform:none}}
+
+/* ---------- 3D TÜNEL ---------- */
+.tunnel{position:relative}
+.tunnel__stage{position:sticky;top:env(safe-area-inset-top,0px);height:100vh;height:100svh;overflow:hidden;perspective:900px;perspective-origin:50% 48%}
+.tunnel__world{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
+.tn{--tw:clamp(260px,29vw,470px);position:absolute;margin:0;width:var(--tw);aspect-ratio:4/5;left:calc(var(--tw)/-2);top:calc(var(--tw)*-.625);border-radius:18px;overflow:hidden;visibility:hidden;will-change:transform,opacity;box-shadow:0 40px 90px -30px rgba(0,0,0,.85),0 0 0 1px rgba(255,225,180,.18)}
+.tn img{width:100%;height:100%;object-fit:cover}
+.tn::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(6,7,14,.65));pointer-events:none}
+.tn figcaption{position:absolute;left:18px;bottom:14px;z-index:1;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#fff}
+.tunnel__hud{position:absolute;left:var(--pad);bottom:clamp(70px,12vh,120px);z-index:5;pointer-events:none}
+.tunnel__title{font-size:clamp(54px,8.5vw,128px);font-style:italic;color:var(--gold-2);text-shadow:0 10px 50px rgba(0,0,0,.6);margin:0}
+.tunnel__title.swap{animation:swap .8s cubic-bezier(.16,.8,.2,1)}
+@keyframes swap{from{opacity:0;transform:translateY(30px);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+.tunnel__count{margin:10px 0 0;font-size:13px;letter-spacing:.3em;color:var(--muted)}
+
+/* ---------- PRİZMA ---------- */
+.prism{position:relative;height:340vh}
+.prism__stage{position:sticky;top:env(safe-area-inset-top,0px);height:100vh;height:100svh;display:grid;grid-template-columns:minmax(260px,.8fr) 1.4fr;align-items:center;gap:clamp(20px,4vw,70px);padding:90px var(--pad) 40px}
+.prism__head h2{font-size:clamp(40px,4.6vw,70px)}
+.prism__nav{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:4px;counter-reset:p}
+.prism__nav button{all:unset;cursor:pointer;display:flex;align-items:baseline;gap:16px;padding:12px 0;font-family:var(--serif);font-size:clamp(24px,2.2vw,32px);color:var(--dim);transition:color .4s,transform .4s;counter-increment:p}
+.prism__nav button::before{content:"0" counter(p);font-family:var(--sans);font-size:12px;letter-spacing:.2em;color:var(--dim)}
+.prism__nav button.is-active{color:var(--ink);transform:translateX(10px)}
+.prism__nav button.is-active::before{color:var(--gold)}
+.prism__nav button:focus-visible{outline:2px solid var(--gold-2)}
+.prism__view{position:relative;height:min(74vh,640px);perspective:1800px}
+.prism__body{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
+.face{position:absolute;inset:0;border-radius:24px;overflow:visible;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-style:preserve-3d}
+.face__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:24px;box-shadow:0 60px 120px -40px rgba(0,0,0,.9),0 0 0 1px rgba(255,225,180,.18)}
+.face::after{content:"";position:absolute;inset:0;border-radius:24px;background:linear-gradient(180deg,transparent 40%,rgba(6,7,14,.85));pointer-events:none}
+.face__float{position:absolute;width:30%;aspect-ratio:1;object-fit:cover;border-radius:16px;box-shadow:0 30px 60px -20px rgba(0,0,0,.85),0 0 0 1px rgba(255,225,180,.25);transition:transform 1s cubic-bezier(.16,.8,.2,1),opacity .8s;opacity:0}
+.face__float--a{right:-6%;top:8%;transform:translateZ(0) rotate(4deg)}
+.face__float--b{right:10%;top:44%;width:24%;transform:translateZ(0) rotate(-5deg)}
+.face.is-front .face__float{opacity:1}
+.face.is-front .face__float--a{transform:translateZ(120px) rotate(4deg)}
+.face.is-front .face__float--b{transform:translateZ(200px) rotate(-5deg)}
+.face__txt{position:absolute;left:clamp(20px,3vw,40px);right:40%;bottom:clamp(20px,3vw,38px);z-index:2;transform:translateZ(60px)}
+.face__txt span{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.face__txt h3{font-size:clamp(40px,4.4vw,66px);margin:8px 0 10px}
+.face__txt p{margin:0;color:var(--muted);max-width:38ch;font-size:15px}
+
+/* ---------- Hizmet kartları (fotoğraflı) ---------- */
+.svc{padding:0;min-height:320px;display:flex;align-items:flex-end}
+.svc>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.38;transform:scale(1.08) translateZ(-1px);transition:opacity .5s,transform .8s}
+.svc:hover>img{opacity:.6;transform:scale(1.02)}
+.svc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,22,.1),rgba(10,12,22,.9) 75%);pointer-events:none}
+.svc__in{position:relative;z-index:1;padding:28px;transform-style:preserve-3d}
+
+/* ---------- SHOWREEL ---------- */
+.reel{padding:18vh var(--pad) 14vh;display:grid;justify-items:center}
+.reel__head{max-width:760px;text-align:center}
+.reel__head .eyebrow{justify-content:center}
+.reel__head .lead{margin-inline:auto}
+
+@media (max-width:1080px){
+  .prism{height:320vh}
+  .prism__stage{grid-template-columns:1fr;align-content:center;gap:20px;padding-top:80px}
+  .prism__nav{display:flex;gap:18px;margin-top:14px}
+  .prism__nav button{font-size:18px;padding:6px 0}
+  .prism__nav button::before{display:none}
+  .prism__view{height:min(58vh,520px)}
+  .prism__head h2{font-size:clamp(34px,6vw,52px);margin-bottom:0}
+}
+@media (max-width:760px){
+  .timebar{display:none}
+  .tn{--tw:64vw}
+  .tunnel__hud{bottom:12vh}
+  .face__txt{right:20px}
+  .face__float--a{right:-3%;top:-4%}
+  .face__float--b{display:none}
+  .face__txt p{font-size:13.5px}
+  .reel{padding-top:12vh}
+  .svc{min-height:240px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal{transform:none}
+}
+.brand__logo{height:40px;width:auto;filter:drop-shadow(0 0 10px rgba(240,170,100,.25))}
+.brand__logo--lg{height:60px}
+
+
+@media (prefers-reduced-motion:reduce){.hero__title .line>*{animation:none}.grain{animation:none}}
+
+.timebar{transition:opacity .5s}.timebar.is-off{opacity:0}
+.face *{backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.face:not(.is-front) .face__txt{opacity:0;transition:opacity .4s}
+.face.is-front .face__txt{opacity:1;transition:opacity .6s .2s}
+#neden .panel{width:min(660px,100%)}
+#neden h2{font-size:clamp(40px,4.4vw,64px)}
+#neden .lead{margin-bottom:20px}
+.why__item{padding:16px}
+.why__icon{margin-bottom:8px}
+.reel__head,.wide__head--center{position:relative;text-shadow:0 2px 30px rgba(0,0,0,.85)}
+.reel__head::before,.wide__head--center::before{content:"";position:absolute;inset:-40px -80px;z-index:-1;background:radial-gradient(closest-side,rgba(8,9,16,.72),rgba(8,9,16,0));pointer-events:none}
+.film__shade::after{content:"";position:absolute;inset:0;background:rgba(8,9,16,calc(var(--p) * .32))}
+
+/* yatay taşmayı kaynağında kes (3D halka ve prizma ekran dışına uzanır) */
+#galeri,.prism{overflow-x:clip}
+/* film karesi canvas çizilene kadar poster olarak görünür */
+.film__tilt{background:#0b0d16 url("assets/frames/f001.webp") center/cover no-repeat}
+@media (max-aspect-ratio: 4/5){.film__tilt{background-image:url("assets/frames-p/f001.webp")}}
+/* form: hazırlanan mesaj */
+.form__ok{grid-column:1/-1;margin:0;min-height:0;color:var(--gold-2);font-size:14px}
+.form__ok:empty{display:none}
+.form__out{grid-column:1/-1;width:100%;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(5,8,18,.6);color:var(--ink);font:14px/1.5 var(--sans);resize:vertical}
+
+/* ---------- "Neden biz" simgeleri: logonun çizgi diliyle, kemer pencere çerçevesinde ---------- */
+.why__icon{display:inline-grid;place-items:center;width:58px;height:66px;margin-bottom:14px;border-radius:29px 29px 12px 12px;border:1px solid rgba(240,185,107,.32);background:radial-gradient(120% 90% at 50% 16%,rgba(240,185,107,.2),rgba(240,185,107,.03) 72%);transition:transform .6s cubic-bezier(.2,.7,.2,1),border-color .4s,box-shadow .4s}
+.why__icon svg{width:42px;height:42px;fill:none;stroke:var(--gold);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;overflow:visible;filter:drop-shadow(0 0 6px rgba(240,185,107,.32))}
+.why__icon .lit{fill:var(--gold-2);stroke:none}
+.why__icon .dot{fill:var(--gold);stroke:none}
+.why__icon .soft{opacity:.45}
+.why__icon .moon{fill:rgba(255,213,154,.14)}
+.why__icon .fizz{opacity:.4}
+.why__icon .rec{fill:#ff6b5b;stroke:none}
+.why__icon .tw{animation:twinkle 2.8s ease-in-out infinite;animation-delay:var(--d,0s)}
+.why__icon .spark{transform-box:fill-box;transform-origin:center;animation:spark 3.4s ease-in-out infinite}
+.why__icon .rec{animation:rec 1.6s steps(1,end) infinite}
+.why__icon .reel{transform-box:fill-box;transform-origin:center}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes spark{0%,100%{transform:scale(.55) rotate(0);opacity:.55}50%{transform:scale(1.08) rotate(45deg);opacity:1}}
+@keyframes rec{0%{opacity:1}50%{opacity:.15}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.why__item:hover .why__icon{transform:translateY(-4px);border-color:rgba(255,213,154,.6);box-shadow:0 14px 30px -14px rgba(240,185,107,.55)}
+.why__item:hover .reel{animation:spin 2.6s linear infinite}
+.why__item:hover .reel--b{animation-duration:3.4s}
+.why__item:hover .tw{animation-duration:1.2s}
+@media (max-width:760px){
+  .why__item{display:grid;grid-template-columns:auto 1fr;gap:2px 16px;align-items:start}
+  .why__icon{grid-row:span 2;margin:0;width:52px;height:60px;border-radius:26px 26px 11px 11px}
+  .why__icon svg{width:38px;height:38px}
+  .why__item h3{align-self:end}
+}
+@media (prefers-reduced-motion:reduce){.why__icon *{animation:none!important}}
+
+/* ---------- Hizmet kartları: üzerine gelince fotoğraf tam parlak ve net ---------- */
+.svc>img{opacity:.5;transform:scale(1.06);filter:saturate(.85);transition:opacity .6s ease,transform 1.4s cubic-bezier(.2,.7,.2,1),filter .6s ease}
+.svc:hover>img,.svc:focus-within>img{opacity:1;transform:scale(1);filter:saturate(1.08) brightness(1.05)}
+.svc::after{background:linear-gradient(180deg,rgba(8,10,20,0) 34%,rgba(8,10,20,.5) 64%,rgba(8,10,20,.9) 100%)}
+.svc h3,.svc p{text-shadow:0 2px 16px rgba(0,0,0,.65)}
+.svc:hover{border-color:rgba(255,213,154,.55);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+/* zaman çizgisi: içeriğin üstünde okunur küçük etiket */
+.timebar{padding:8px 14px;border-radius:999px;background:rgba(8,9,16,.55);border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);left:calc(var(--pad) - 14px)}
+
+/* =====================================================================
+   INSTAGRAM ODAKLI YÖNLENDİRME
+   ===================================================================== */
+.btn .ig{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8}
+.btn .ig .ig__dot{fill:currentColor;stroke:none}
+.btn--sm .ig{width:16px;height:16px}
+.btn--ig{background:linear-gradient(115deg,#f9b234 0%,#ee2a7b 45%,#8a3ab9 75%,#4c68d7 100%);color:#fff;box-shadow:0 10px 30px -10px rgba(238,42,123,.6)}
+.btn--ig:hover{transform:translateY(-2px);box-shadow:0 16px 40px -10px rgba(238,42,123,.75)}
+.btn--block{width:100%;white-space:normal;text-align:center;line-height:1.2;padding-block:12px}
+.bolt{width:16px;height:16px;flex:none;fill:var(--gold-2)}
+.hero__ig{display:flex;align-items:center;gap:8px;margin:18px 0 0;font-size:14px;color:var(--muted)}
+
+/* adımlar */
+.steps{list-style:none;margin:4px 0 28px;padding:0;display:grid;gap:14px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:34px 1fr;column-gap:14px;counter-increment:s}
+.steps li::before{content:counter(s);grid-row:span 2;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(240,185,107,.45);background:rgba(240,185,107,.08);color:var(--gold-2);font-family:var(--serif);font-size:18px}
+.steps b{font-weight:600;font-size:15px;line-height:1.35}
+.steps span{color:var(--muted);font-size:14px;line-height:1.45}
+
+/* form ekleri */
+.check{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);cursor:pointer;margin-top:4px}
+.check input{width:16px;height:16px;margin:0;accent-color:var(--gold)}
+.field input:disabled{opacity:.4}
+
+/* DM önizlemesi: 3D telefon */
+.booking--ig{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)}
+.booking__dm{position:sticky;top:calc(96px + env(safe-area-inset-top,0px));align-self:start;display:grid;gap:14px;justify-items:center}
+.booking__dm .form__err,.booking__dm .form__ok,.booking__dm .form__note,.booking__dm .form__out{width:min(380px,100%);text-align:center;margin:0}
+.booking__dm .form__out{text-align:left}
+.booking__dm .btn--block{width:min(380px,100%)}
+.phone{width:min(340px,100%);border-radius:42px;padding:11px;background:linear-gradient(160deg,#252a40,#0c0f1c);box-shadow:0 60px 120px -40px rgba(0,0,0,.9),inset 0 0 0 1px rgba(255,255,255,.12);transform:perspective(1200px) rotateY(-12deg) rotateX(4deg);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.phone:hover{transform:perspective(1200px) rotateY(0) rotateX(0)}
+.phone__screen{border-radius:32px;overflow:hidden;background:#05060b;display:flex;flex-direction:column;min-height:440px}
+.dm__bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.dm__avatar{width:34px;height:34px;object-fit:contain;border-radius:50%;background:#171a27;padding:5px;flex:none}
+.dm__who{display:grid;line-height:1.3;min-width:0}
+.dm__who b{font-size:14px;font-weight:600}
+.dm__who span{display:flex;align-items:center;gap:4px;font-size:11.5px;color:#9aa0b4}
+.dm__who .bolt{width:12px;height:12px}
+.dm__bar .ig{margin-left:auto;width:20px;height:20px;flex:none;fill:none;stroke:#e9e9f0;stroke-width:1.7}
+.dm__bar .ig .ig__dot{fill:#e9e9f0;stroke:none}
+.dm__body{flex:1;display:flex;flex-direction:column;gap:10px;padding:14px}
+.dm__day{margin:0 auto 4px;font-size:11px;color:#7d8296;letter-spacing:.04em}
+.dm__msg{align-self:flex-end;max-width:90%;padding:12px 14px;border-radius:20px 20px 6px 20px;background:linear-gradient(135deg,#7a3ff0,#3d6cf4);color:#fff;font-size:13.5px;line-height:1.5;overflow-wrap:anywhere}
+.dm__msg b{font-weight:600}
+.dm__msg .ph{opacity:.7;border-bottom:1px dashed rgba(255,255,255,.65)}
+.dm__typing{align-self:flex-start;display:flex;gap:4px;padding:12px 14px;border-radius:20px 20px 20px 6px;background:#262a37}
+.dm__typing i{width:7px;height:7px;border-radius:50%;background:#a9adbd;animation:typing 1.2s infinite ease-in-out}
+.dm__typing i:nth-child(2){animation-delay:.15s}
+.dm__typing i:nth-child(3){animation-delay:.3s}
+@keyframes typing{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+.dm__compose{margin:0 12px 14px;padding:11px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.14);color:#7d8296;font-size:13px}
+
+/* bildirim */
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:80;width:max-content;max-width:min(560px,calc(100vw - 32px));padding:14px 18px;border-radius:16px;background:rgba(14,16,28,.94);border:1px solid var(--line);color:var(--ink);font-size:14px;line-height:1.45;box-shadow:0 20px 50px -20px rgba(0,0,0,.8);transform:translate(-50%,20px);opacity:0;transition:opacity .35s,transform .35s}
+.toast.is-on{opacity:1;transform:translate(-50%,0)}
+
+/* yüzen Instagram düğmesi */
+.ig-float{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:10px;height:56px;padding:0 20px 0 16px;border-radius:999px;background:linear-gradient(115deg,#f9b234 0%,#ee2a7b 45%,#8a3ab9 75%,#4c68d7 100%);color:#fff;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 14px 34px -10px rgba(238,42,123,.6);opacity:0;transform:translateY(16px) scale(.92);pointer-events:none;transition:opacity .35s,transform .35s}
+.ig-float.is-on{opacity:1;transform:none;pointer-events:auto}
+.ig-float.is-on:hover{transform:translateY(-2px)}
+.ig-float .ig{width:24px;height:24px;flex:none;fill:none;stroke:#fff;stroke-width:1.8}
+.ig-float .ig .ig__dot{fill:#fff;stroke:none}
+
+/* altbilgi Instagram bandı + telefon */
+.footer__cta{max-width:1200px;margin:0 auto 56px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 28px;padding:26px 30px;border-radius:24px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.footer__cta p{margin:0;font-family:var(--serif);font-size:clamp(22px,2.4vw,30px);line-height:1.25;color:var(--ink);max-width:42ch;min-width:0}
+.footer__cta b{color:var(--gold-2);font-weight:500}
+.footer .btn--ig,.footer .btn--ig:hover{color:#fff}
+.footer__btns{display:flex;flex-wrap:wrap;gap:12px}
+.footer .tel span{color:var(--dim);font-size:13px;margin-right:6px}
+
+@media (max-width:1080px){
+  .booking--ig{grid-template-columns:minmax(0,1fr)}
+  .booking__dm{position:static}
+}
+@media (max-width:760px){
+  .phone{transform:none;width:min(320px,100%)}
+  .phone__screen{min-height:0}
+  .ig-float{right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));height:54px;padding:0 15px}
+  .ig-float span{display:none}
+  .footer__cta{padding:22px 20px}
+  .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+}
+@media (prefers-reduced-motion:reduce){.dm__typing i{animation:none}.phone{transform:none}}
+
+/* başlık arkasındaki yumuşak gölge ekran dışına taşmasın */
+.reel{overflow-x:clip}
+
+
+/* ---------- Açılış yazıları: okunurluk ----------
+   Filmi kutuyla kapatmadan, yalnızca yazıların arkasına yumuşak bir gölge geçişi + keskin metin gölgesi */
+/* Ekrana sabit katman (kenarı yok); kaydırdıkça app.js opaklığı yumuşakça sıfıra indirir */
+.hero-scrim{position:absolute;inset:0;pointer-events:none;will-change:opacity;
+  background:
+   linear-gradient(90deg,rgba(8,9,16,.58) 0%,rgba(8,9,16,.34) 38%,rgba(8,9,16,0) 66%),
+   linear-gradient(0deg,rgba(8,9,16,.5) 0%,rgba(8,9,16,0) 46%),
+   radial-gradient(42% 46% at 100% 78%,rgba(8,9,16,.5),rgba(8,9,16,0) 72%)}
+.hero__inner{position:relative;z-index:1}
+.hero__facts,.scroll-hint{z-index:1}
+.hero__title{text-shadow:0 2px 4px rgba(0,0,0,.28),0 10px 60px rgba(0,0,0,.5)}
+.hero .eyebrow{font-size:13px;font-weight:600;color:var(--gold-2);text-shadow:0 1px 2px rgba(0,0,0,.7),0 0 18px rgba(0,0,0,.55)}
+.hero__lead{opacity:1;font-weight:500;text-shadow:0 1px 2px rgba(0,0,0,.6),0 4px 24px rgba(0,0,0,.55)}
+.hero__ig{font-size:15px;font-weight:500;color:var(--ink);text-shadow:0 1px 2px rgba(0,0,0,.7),0 2px 14px rgba(0,0,0,.6)}
+.hero__facts b{text-shadow:0 2px 4px rgba(0,0,0,.4),0 6px 30px rgba(0,0,0,.5)}
+.hero__facts span{font-weight:600;color:var(--ink);opacity:.92;text-shadow:0 1px 2px rgba(0,0,0,.75),0 0 16px rgba(0,0,0,.6)}
+.hero .btn--ghost{background:rgba(10,12,24,.48);border-color:rgba(255,236,210,.5)}
+@media (max-width:760px){
+  .hero-scrim{background:linear-gradient(180deg,rgba(8,9,16,.18) 0%,rgba(8,9,16,.3) 30%,rgba(8,9,16,.62) 70%,rgba(8,9,16,.72) 100%)}
+  .hero .eyebrow{font-size:12px;letter-spacing:.18em}
+  .hero__facts span{display:block;font-size:10.5px;line-height:1.45;margin-top:4px}
+}
+
+/* yapıştırma hatırlatması */
+.form__tip{display:flex;align-items:flex-start;gap:10px;text-align:left!important;padding:12px 14px;border-radius:14px;border:1px solid rgba(240,185,107,.28);background:rgba(240,185,107,.07);color:var(--ink)!important;font-size:13.5px!important;line-height:1.5}
+.form__tip svg{width:18px;height:18px;flex:none;margin-top:1px;fill:none;stroke:var(--gold-2);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.form__tip b{font-weight:600;color:var(--gold-2)}
+.tip__how{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}
+.tip__how li{display:grid;grid-template-columns:96px 1fr;align-items:baseline;gap:8px;color:var(--muted)}
+.tip__how li>span:first-child{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.tip__how kbd{margin:0 2px}
+.tip__how i{font-style:normal;margin:0 4px;color:var(--dim)}
+/* her cihaz yalnızca kendi talimatını görür */
+@media (hover:none) and (pointer:coarse){.tip__pc{display:none!important}}
+@media (hover:hover) and (pointer:fine){.tip__mob{display:none!important}}
+.booking__dm .form__err:empty{display:none}
+.form__tip kbd{font:600 12px/1 var(--sans);padding:3px 6px;border-radius:6px;border:1px solid rgba(255,255,255,.25);border-bottom-width:2px;background:rgba(255,255,255,.06);color:var(--ink)}
+
+/* altın kelebek katmanı (içeriğin üstünde, tıklamaları engellemez) */
+.butterfly{position:fixed;left:0;top:0;z-index:56;pointer-events:none;transition:opacity .4s}
+
+</style>
+<a class="skip" href="#icerik">İçeriğe geç</a>
+
+<div class="loadbar" id="loadbar" aria-hidden="true"><span id="loadBar"></span></div>
+
+<!-- Kaydırmayla ilerleyen drone filmi (gün batımı → gece) -->
+<div class="film" aria-hidden="true">
+  <div class="film__tilt" id="filmTilt"><canvas id="film"></canvas></div>
+  <canvas id="bokeh"></canvas>
+  <div class="film__shade" id="filmShade"></div>
+  <div class="hero-scrim" id="heroScrim"></div>
+  <div class="grain"></div>
+</div>
+
+<header class="nav" id="nav">
+  <a href="#top" class="brand">
+    <img class="brand__logo" src="assets/logo-120.png" alt="" width="30" height="40">
+    <span>gecekondu<small>EVENT · MANAVGAT</small></span>
+  </a>
+  <nav class="nav__links" id="navLinks" aria-label="Ana menü">
+    <a href="#anlar">Anlar</a>
+    <a href="#neden">Neden Biz</a>
+    <a href="#mekanlar">Mekânlar</a>
+    <a href="#hizmetler">Hizmetler</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#iletisim">İletişim</a>
+  </nav>
+  <button class="nav__burger" id="burger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+</header>
+
+<div class="timebar" aria-hidden="true"><span id="timeLabel">Gün batımı</span><i><b id="timeFill"></b></i></div>
+
+<main id="icerik">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero__inner">
+      <p class="eyebrow reveal"><span class="dot"></span> 2026–2027 rezervasyonları açık</p>
+      <h1 class="hero__title reveal">
+        <span class="line"><span>Doğanın içinde</span></span>
+        <span class="line"><em>unutulmaz anlar.</em></span>
+      </h1>
+      <p class="hero__lead reveal">Manavgat'ta, şehrin gürültüsünden uzakta 350 kişilik açık hava mekânı. Yemekten dekora, ışıktan servise — <strong>her şey dahil</strong>.</p>
+      <div class="hero__actions reveal">
+        <a class="btn btn--gold" href="#rezervasyon"><svg class="ig" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle class="ig__dot" cx="17.2" cy="6.8" r="1.05"/></svg> Instagram'dan anında yanıt al</a>
+        <a class="btn btn--ghost" href="#anlar">Kaydırın, gece başlasın <span aria-hidden="true">↓</span></a>
+      </div>
+      <p class="hero__ig reveal"><svg class="bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 2.5 5 13.6h6.3l-1.1 7.9 8.3-11.2h-6.4z"/></svg> Instagram DM'deki otomatik asistanımız mesajınızı anında yanıtlar.</p>
+    </div>
+    <ul class="hero__facts reveal" aria-label="Öne çıkanlar">
+      <li><b>350</b><span>kişi kapasite</span></li>
+      <li><b>8</b><span>etkinlik türü</span></li>
+      <li><b>Tek</b><span>fiyat · sürpriz yok</span></li>
+    </ul>
+  </section>
+
+  <!-- 3D TÜNEL: gerçek anlar -->
+  <section class="tunnel" id="anlar" aria-label="Gecekondu'da yaşanan anlar">
+    <div class="tunnel__stage">
+      <div class="tunnel__world" id="world"></div>
+      <div class="tunnel__hud">
+        <p class="eyebrow">Gecekondu'da bir gün</p>
+        <h2 class="tunnel__title" id="hudTitle" aria-live="polite">Düğün</h2>
+        <p class="tunnel__count"><span id="hudIdx">01</span> / <span id="hudTotal">08</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEDEN -->
+  <section class="section section--left" id="neden">
+    <div class="panel reveal">
+      <p class="eyebrow">01 — Neden Gecekondu Event</p>
+      <h2>Bir mekân değil,<br><em>bir his.</em></h2>
+      <p class="lead">Işıklı zincirlerin altında uzun masalar, ahşabın sıcaklığı ve açık gökyüzü. Her ayrıntıyı size ait hissettirmek için buradayız.</p>
+      <div class="why">
+        <article class="why__item"><span class="why__icon" aria-hidden="true"><svg viewBox="0 0 48 48">
+            <circle class="moon" cx="13" cy="11" r="3.4"/>
+            <circle class="lit tw" cx="22" cy="6" r=".8" style="--d:.7s"/><circle class="lit tw" cx="31" cy="8" r=".9" style="--d:.2s"/><circle class="lit tw" cx="37" cy="12.5" r=".9" style="--d:1.3s"/>
+            <path d="M24 17 15.5 39.5h17Z"/><path class="lit glow" d="M24 30.5 20.6 39.5h6.8Z"/><path d="M19.4 29.2h9.2"/>
+            <path d="M9.5 22.5 6 34.5h7ZM9.5 34.5v5"/><path d="M38.5 19 34.5 33h8ZM38.5 33v6.5"/>
+            <path d="M4.5 39.5h39"/><path class="soft" d="M10 43.5h9M24 43.5h14"/></svg></span><h3>Eşsiz konum</h3><p>Doğanın içinde, şehir gürültüsünden uzak.</p></article>
+        <article class="why__item"><span class="why__icon" aria-hidden="true"><svg viewBox="0 0 48 48">
+            <path d="M4 10Q24 24 44 10"/><path d="M12 14.48v1.6"/><circle class="lit tw" cx="12" cy="17.68" r="1.6" style="--d:0s"/><path d="M20 16.72v1.6"/><circle class="lit tw" cx="20" cy="19.92" r="1.6" style="--d:.6s"/><path d="M28 16.72v1.6"/><circle class="lit tw" cx="28" cy="19.92" r="1.6" style="--d:1.2s"/><path d="M36 14.48v1.6"/><circle class="lit tw" cx="36" cy="17.68" r="1.6" style="--d:1.8s"/>
+            <path d="M13 28.5h22"/><circle class="dot" cx="15" cy="26" r="1.05"/><circle class="dot" cx="19.5" cy="26" r="1.05"/><circle class="dot" cx="24" cy="26" r="1.05"/><circle class="dot" cx="28.5" cy="26" r="1.05"/><circle class="dot" cx="33" cy="26" r="1.05"/><circle class="dot" cx="15" cy="31" r="1.05"/><circle class="dot" cx="19.5" cy="31" r="1.05"/><circle class="dot" cx="24" cy="31" r="1.05"/><circle class="dot" cx="28.5" cy="31" r="1.05"/><circle class="dot" cx="33" cy="31" r="1.05"/>
+            <path d="M8 37.5h32"/><circle class="dot" cx="10" cy="34.8" r="1.3"/><circle class="dot" cx="14.67" cy="34.8" r="1.3"/><circle class="dot" cx="19.33" cy="34.8" r="1.3"/><circle class="dot" cx="24" cy="34.8" r="1.3"/><circle class="dot" cx="28.67" cy="34.8" r="1.3"/><circle class="dot" cx="33.33" cy="34.8" r="1.3"/><circle class="dot" cx="38" cy="34.8" r="1.3"/><circle class="dot" cx="10" cy="40.3" r="1.3"/><circle class="dot" cx="14.67" cy="40.3" r="1.3"/><circle class="dot" cx="19.33" cy="40.3" r="1.3"/><circle class="dot" cx="24" cy="40.3" r="1.3"/><circle class="dot" cx="28.67" cy="40.3" r="1.3"/><circle class="dot" cx="33.33" cy="40.3" r="1.3"/><circle class="dot" cx="38" cy="40.3" r="1.3"/></svg></span><h3>350 kişi kapasite</h3><p>Her ölçekte etkinlik için geniş açık hava alanı.</p></article>
+        <article class="why__item"><span class="why__icon" aria-hidden="true"><svg viewBox="0 0 48 48">
+            <g transform="translate(13 42) rotate(18)"><path d="M-3.5 -25h7l-.9 11q-2.6 6-5.2 0z"/><path class="lit fizz" d="M-3.2 -21.5h6.4l-.6 7.5q-2.6 5.4-5.2 0z"/><path d="M0 -11V0M-4.2 0h8.4"/></g>
+            <g transform="translate(35 42) rotate(-18)"><path d="M-3.5 -25h7l-.9 11q-2.6 6-5.2 0z"/><path class="lit fizz" d="M-3.2 -21.5h6.4l-.6 7.5q-2.6 5.4-5.2 0z"/><path d="M0 -11V0M-4.2 0h8.4"/></g>
+            <path class="lit spark" d="M24 5.5l1.1 4.4 4.4 1.1-4.4 1.1L24 16.5l-1.1-4.4-4.4-1.1 4.4-1.1z"/>
+            <circle class="lit tw" cx="15.5" cy="9" r=".9" style="--d:.4s"/><circle class="lit tw" cx="33" cy="7.5" r=".8" style="--d:1.4s"/></svg></span><h3>Her şey dahil</h3><p>Yemek, içecek, dekor, ses, ışık ve servis tek fiyat. Sürpriz yok.</p></article>
+        <article class="why__item"><span class="why__icon" aria-hidden="true"><svg viewBox="0 0 48 48">
+            <g class="reel"><circle cx="14.5" cy="14" r="6.2"/><circle class="dot" cx="14.5" cy="14" r="1.3"/><circle cx="14.5" cy="10.7" r="1.1"/><circle cx="11.64" cy="15.65" r="1.1"/><circle cx="17.36" cy="15.65" r="1.1"/></g><g class="reel reel--b"><circle cx="27" cy="14" r="6.2"/><circle class="dot" cx="27" cy="14" r="1.3"/><circle cx="27" cy="10.7" r="1.1"/><circle cx="24.14" cy="15.65" r="1.1"/><circle cx="29.86" cy="15.65" r="1.1"/></g>
+            <rect x="7" y="21.5" width="27" height="15" rx="2.6"/><path d="M34 25.5 42.5 21v16l-8.5-4.5z"/>
+            <circle class="rec" cx="11.5" cy="26" r="1.5"/><path class="soft" d="M11 31.5h9"/>
+            <path d="M20.5 36.5 15.5 44.5M20.5 36.5l5 8M20.5 36.5v8"/></svg></span><h3>Gecekondu Medya</h3><p>Profesyonel fotoğraf ve video çekimi.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEKÂNLAR: 3D üçgen prizma -->
+  <section class="prism" id="mekanlar" aria-label="Bizi biz yapan köşeler">
+    <div class="prism__stage">
+      <div class="prism__head">
+        <p class="eyebrow">02 — Bizi biz yapan köşeler</p>
+        <h2>Her köşesi<br><em>bir başka hikâye.</em></h2>
+        <ol class="prism__nav" id="prismNav">
+          <li><button type="button" data-i="0">Üçgen Ev</button></li>
+          <li><button type="button" data-i="1">Şömineli Loca</button></li>
+          <li><button type="button" data-i="2">Klasik Arabalar</button></li>
+        </ol>
+      </div>
+      <div class="prism__view">
+        <div class="prism__body" id="prismBody">
+          <article class="face" data-face="0">
+            <img class="face__img" src="assets/images/39-wedding-a-frame-portrait-lg.webp" alt="Üçgen Ev önünde gelin ve damat" loading="lazy">
+            <img class="face__float face__float--a" src="assets/images/16-henna-a-frame-sm.webp" alt="" loading="lazy">
+            <img class="face__float face__float--b" src="assets/images/42-proposal-couple-a-frame-sm.webp" alt="" loading="lazy">
+            <div class="face__txt"><span>01 · Bir masalın başlangıcı</span><h3>Üçgen Ev</h3><p>Her fotoğrafında başka bir anı saklayan ahşap evimiz; nikah kemeri ve ışıklı verandasıyla törenin kalbi.</p></div>
+          </article>
+          <article class="face" data-face="1">
+            <img class="face__img" src="assets/images/05-birthday-bonfire-lg.webp" alt="Şömineli loca önünde ateş başında kutlama" loading="lazy">
+            <img class="face__float face__float--a" src="assets/images/07-fireside-lounge-sm.webp" alt="" loading="lazy">
+            <img class="face__float face__float--b" src="assets/images/04-birthday-dinner-sm.webp" alt="" loading="lazy">
+            <div class="face__txt"><span>02 · Sıcacık bir akşam</span><h3>Şömineli Loca</h3><p>Ahşabın, ateşin ve birlikte olmanın sıcaklığı. Kışa özel üç farklı konsept.</p></div>
+          </article>
+          <article class="face" data-face="2">
+            <img class="face__img" src="assets/images/09-yellow-beetle-couple-lg.webp" alt="Sarı klasik Beetle önünde gelin ve damat" loading="lazy">
+            <img class="face__float face__float--a" src="assets/images/11-yellow-orange-beetles-sm.webp" alt="" loading="lazy">
+            <img class="face__float face__float--b" src="assets/images/01-classic-mercedes-bride-sm.webp" alt="" loading="lazy">
+            <div class="face__txt"><span>03 · Nostaljik bir kare</span><h3>Klasik Arabalar</h3><p>Sarı ve turuncu Beetle'lar, klasik Mercedes — gelin-damat çekimlerinin en sevilen köşesi.</p></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HİZMETLER -->
+  <section class="section section--wide" id="hizmetler">
+    <div class="wide reveal">
+      <div class="wide__head">
+        <p class="eyebrow">03 — Her şey dahil</p>
+        <h2>Hayal edin.<br><em>Gerisini bize bırakın.</em></h2>
+        <p class="lead">Başından sonuna her detayı planlıyoruz; size yalnızca anın tadını çıkarmak kalıyor.</p>
+      </div>
+      <div class="services">
+        <article class="svc tilt"><img src="assets/images/03-wedding-toast-lg.webp" srcset="assets/images/03-wedding-toast-sm.webp 640w, assets/images/03-wedding-toast-lg.webp 1170w" sizes="(max-width: 760px) 92vw, (max-width: 1080px) 46vw, 400px" alt="" loading="lazy" decoding="async"><div class="svc__in"><span class="svc__n">01</span><h3>Yemek & İçecek</h3><p>Zengin menü seçenekleri, tatlı büfesi ve açık bar.</p></div></article>
+        <article class="svc tilt"><img src="assets/images/21-wedding-floral-arch-detail-lg.webp" srcset="assets/images/21-wedding-floral-arch-detail-sm.webp 640w, assets/images/21-wedding-floral-arch-detail-lg.webp 1170w" sizes="(max-width: 760px) 92vw, (max-width: 1080px) 46vw, 400px" alt="" loading="lazy" decoding="async"><div class="svc__in"><span class="svc__n">02</span><h3>Dekorasyon</h3><p>Konseptinize özel tasarlanan dekor.</p></div></article>
+        <article class="svc tilt"><img src="assets/images/06-birthday-sparklers-lg.webp" srcset="assets/images/06-birthday-sparklers-sm.webp 640w, assets/images/06-birthday-sparklers-lg.webp 1170w" sizes="(max-width: 760px) 92vw, (max-width: 1080px) 46vw, 400px" alt="" loading="lazy" decoding="async"><div class="svc__in"><span class="svc__n">03</span><h3>Ses & Işık</h3><p>Profesyonel ses sistemi ve atmosferik aydınlatma.</p></div></article>
+        <article class="svc tilt"><img src="assets/images/12-garden-tables-lg.webp" srcset="assets/images/12-garden-tables-sm.webp 640w, assets/images/12-garden-tables-lg.webp 1170w" sizes="(max-width: 760px) 92vw, (max-width: 1080px) 46vw, 400px" alt="" loading="lazy" decoding="async"><div class="svc__in"><span class="svc__n">04</span><h3>Servis Ekibi</h3><p>Deneyimli garsonlar ve etkinlik koordinatörü.</p></div></article>
+        <article class="svc tilt"><img src="assets/images/27-wedding-blue-dress-couple-lg.webp" srcset="assets/images/27-wedding-blue-dress-couple-sm.webp 640w, assets/images/27-wedding-blue-dress-couple-lg.webp 1170w" sizes="(max-width: 760px) 92vw, (max-width: 1080px) 46vw, 400px" alt="" loading="lazy" decoding="async"><div class="svc__in"><span class="svc__n">05</span><h3>Fotoğraf & Video</h3><p>Gecekondu Medya ile profesyonel çekim.</p></div></article>
+        <article class="svc tilt"><img src="assets/images/22-wedding-ceremony-seating-lg.webp" srcset="assets/images/22-wedding-ceremony-seating-sm.webp 640w, assets/images/22-wedding-ceremony-seating-lg.webp 1170w" sizes="(max-width: 760px) 92vw, (max-width: 1080px) 46vw, 400px" alt="" loading="lazy" decoding="async"><div class="svc__in"><span class="svc__n">06</span><h3>Organizasyon</h3><p>Baştan sona her detay planlanır.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GECEKONDU MEDYA -->
+  <section class="reel" id="medya">
+    <div class="reel__head reveal">
+      <p class="eyebrow">04 — Gecekondu Medya ile</p>
+      <h2>Bir gün yaşanır.<br><em>Bin kez hissedilir.</em></h2>
+      <p class="lead">O küçük bakış, o kocaman gülümseme… Fotoğraf ve video çekimleri kardeş markamız Gecekondu Medya'nın kadrajında. <a class="link" href="https://www.instagram.com/gecekondumedya/" target="_blank" rel="noopener">@gecekondumedya ↗</a></p>
+    </div>
+  </section>
+
+  <!-- ETKİNLİKLER -->
+  <section class="section section--right" id="etkinlikler">
+    <div class="panel reveal">
+      <p class="eyebrow">05 — Sizin hikâyeniz, bizim özenimiz</p>
+      <h2>Hangi anı<br><em>kutlayalım?</em></h2>
+      <ul class="events">
+        <li><b>Düğün</b><span>350 kişiye kadar</span></li>
+        <li><b>Nişan</b><span>Ailece, doğada</span></li>
+        <li><b>Kına Gecesi</b><span>Işıklar altında</span></li>
+        <li><b>Evlilik Teklifi</b><span>Romantik dekor</span></li>
+        <li><b>Doğum Günü</b><span>Her yaşa</span></li>
+        <li><b>Baby Shower</b><span>Tatlı bir kutlama</span></li>
+        <li><b>Bride Party</b><span>Gelin & arkadaşları</span></li>
+        <li><b>Kurumsal</b><span>Şirket yemekleri & lansmanlar</span></li>
+      </ul>
+      <a class="btn btn--gold" href="#rezervasyon"><svg class="ig" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle class="ig__dot" cx="17.2" cy="6.8" r="1.05"/></svg> Instagram'dan teklif isteyin</a>
+    </div>
+  </section>
+
+  <!-- GALERİ -->
+  <section class="section section--wide" id="galeri">
+    <div class="wide reveal">
+      <div class="wide__head wide__head--center">
+        <p class="eyebrow">06 — Hikâyelerden kareler</p>
+        <h2>Bir bakışta <em>yeniden o gün.</em></h2>
+        <p class="lead">Sürükleyin, döndürün, dokunun. Bu karelerin hepsi Gecekondu'da yaşanmış gerçek anlar.</p>
+      </div>
+      <div class="carousel" id="carousel" tabindex="0" aria-label="Fotoğraf galerisi — ok tuşlarıyla döndürün">
+        <div class="carousel__ring" id="ring"></div>
+      </div>
+      <div class="carousel__ctrl">
+        <button class="round" id="prev" aria-label="Önceki fotoğraf">←</button>
+        <span id="galCaption" class="carousel__cap" aria-live="polite"></span>
+        <button class="round" id="next" aria-label="Sonraki fotoğraf">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM HAZIR MESAJ -->
+  <section class="section section--wide" id="rezervasyon">
+    <div class="wide reveal">
+      <div class="booking booking--ig">
+        <div class="booking__intro">
+          <p class="eyebrow">07 — Instagram'dan anında yanıt</p>
+          <h2>Bilgilerinizi yazın,<br><em>Instagram'dan gönderin.</em></h2>
+          <p class="lead">Instagram hesabımızda Gecekondu Event hakkındaki tüm detayları bilen otomatik bir asistan var. Formu doldurun, mesajınızı biz hazırlayalım; DM'den gönderdiğiniz anda yanıtınız gelsin.</p>
+          <ol class="steps">
+            <li><b>Bilgilerinizi yazın</b><span>Organizasyon, tarih ve davetli sayısı yeterli.</span></li>
+            <li><b>“Instagram'dan Gönder”e dokunun</b><span>Mesajınız hazırlanır, otomatik kopyalanır ve sohbetimiz açılır.</span></li>
+            <li><b>Gönder'e basın, anında yanıt alın</b><span>Asistanımız bilgilerinize göre hemen yanıtlar.</span></li>
+          </ol>
+          <form class="form" id="form" novalidate>
+            <div class="field field--half"><label for="f-type">Organizasyon <i>*</i></label>
+              <select id="f-type" name="type" required>
+                <option value="">Seçin</option>
+                <option>Düğün</option><option>Nişan</option><option>Kına Gecesi</option><option>Evlilik Teklifi</option>
+                <option>Doğum Günü</option><option>Baby Shower</option><option>Bride Party</option><option>Kurumsal</option><option>Diğer</option>
+              </select></div>
+            <div class="field field--half"><label for="f-date">Düşündüğünüz tarih <i>*</i></label><input id="f-date" name="date" type="date" required>
+              <label class="check" for="f-nodate"><input id="f-nodate" type="checkbox"> Tarih henüz belli değil</label></div>
+            <div class="field"><label for="f-guests">Tahmini davetli sayısı</label>
+              <div class="range"><input id="f-guests" name="guests" type="range" min="10" max="350" step="10" value="150"><output id="guestsOut" for="f-guests">150 kişi</output></div></div>
+            <div class="field"><label for="f-name">Adınız <small>(isteğe bağlı)</small></label><input id="f-name" name="name" autocomplete="name"></div>
+            <div class="field"><label for="f-note">Eklemek istedikleriniz <small>(isteğe bağlı)</small></label><textarea id="f-note" name="note" rows="2" placeholder="Konsept, menü tercihi, özel istekler…"></textarea></div>
+            <button type="submit" hidden aria-hidden="true" tabindex="-1">Hazırla</button>
+          </form>
+          <div class="ask">
+            <p class="ask__title">Hızlı sorular · dokunun, Instagram'da gönderin</p>
+            <div class="ask__chips">
+              <a class="chip" data-q="Merhaba Gecekondu Event, web sitenizden yazıyorum. Her şey dahil fiyatlarınız hakkında bilgi alabilir miyim?" href="https://ig.me/m/gecekonduevent" target="_blank" rel="noopener" data-k="fiyat">Fiyat bilgisi</a>
+              <a class="chip" data-q="Merhaba Gecekondu Event, web sitenizden yazıyorum. Düşündüğüm tarih müsait mi, nasıl öğrenebilirim?" href="https://ig.me/m/gecekonduevent" target="_blank" rel="noopener" data-k="tarih">Tarih müsait mi?</a>
+              <a class="chip" data-q="Merhaba Gecekondu Event, web sitenizden yazıyorum. Menü ve dekor seçenekleriniz hakkında detay alabilir miyim?" href="https://ig.me/m/gecekonduevent" target="_blank" rel="noopener" data-k="menu">Menü & dekor</a>
+              <a class="chip" data-q="Merhaba Gecekondu Event, web sitenizden yazıyorum. Mekânı yerinde görmek istiyorum, ne zaman gelebilirim?" href="https://ig.me/m/gecekonduevent" target="_blank" rel="noopener" data-k="mekan">Mekânı görmek</a>
+            </div>
+          </div>
+        </div>
+        <div class="booking__dm">
+          <div class="phone tilt" aria-label="Instagram mesaj önizlemesi">
+            <div class="phone__screen">
+              <div class="dm__bar">
+                <img class="dm__avatar" src="assets/logo-120.png" alt="" width="30" height="40">
+                <div class="dm__who"><b>gecekonduevent</b><span><svg class="bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 2.5 5 13.6h6.3l-1.1 7.9 8.3-11.2h-6.4z"/></svg> Otomatik asistan · anında yanıt</span></div>
+                <svg class="ig" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle class="ig__dot" cx="17.2" cy="6.8" r="1.05"/></svg>
+              </div>
+              <div class="dm__body">
+                <p class="dm__day">Mesajınızın önizlemesi</p>
+                <div class="dm__msg" id="dmMsg"></div>
+                <div class="dm__typing" aria-hidden="true"><i></i><i></i><i></i></div>
+              </div>
+              <div class="dm__compose" aria-hidden="true">Mesaj gönder…</div>
+            </div>
+          </div>
+          <a class="btn btn--ig btn--block" id="igSend" href="https://ig.me/m/gecekonduevent" target="_blank" rel="noopener"><svg class="ig" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle class="ig__dot" cx="17.2" cy="6.8" r="1.05"/></svg> Instagram'dan Gönder</a>
+          <a class="btn btn--wa btn--quiet btn--block" id="waSend" href="https://wa.me/905016480746" target="_blank" rel="noopener"><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 20.4l1.3-4A8.4 8.4 0 1 1 8.1 19.5z"/><path class="wa__h" d="M9 8.3c.2-.5.5-.6.8-.6h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .5-.1.7l-.5.6c-.1.1-.1.3 0 .5.6 1 1.4 1.8 2.4 2.4.2.1.4.1.5 0l.6-.5c.2-.2.5-.2.7-.1l1.6.7c.3.1.4.3.4.5v.5c0 .3-.2.7-.6.8-.9.4-2.1.4-3.6-.5a9.6 9.6 0 0 1-3.4-3.4c-.9-1.5-.9-2.7-.5-3.6z"/></svg> Ya da WhatsApp’tan yazın</a>
+          <p class="form__err" id="formErr" role="alert"></p>
+          <p class="form__ok" id="formOk" aria-live="polite"></p>
+          <textarea class="form__out" id="msgOut" rows="7" readonly hidden aria-label="Hazırlanan mesaj"></textarea>
+          <div class="form__note form__tip" role="note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="4" width="10" height="4" rx="1.2"/><path d="M8.5 6H6.8A1.8 1.8 0 0 0 5 7.8v11.4A1.8 1.8 0 0 0 6.8 21h10.4a1.8 1.8 0 0 0 1.8-1.8V7.8A1.8 1.8 0 0 0 17.2 6h-1.7"/><path d="M9 13.5h6M9 17h4"/></svg><div><b>Mesaj kutusu boş mu açıldı?</b> Endişelenmeyin, mesajınız kopyalandı; yapıştırmanız yeterli.<ul class="tip__how"><li class="tip__mob"><span>Telefonda</span><span>Kutuya basılı tutun, <b>Yapıştır</b>’a dokunun.</span></li><li class="tip__pc"><span>Bilgisayarda</span><span><kbd>Ctrl</kbd>+<kbd>V</kbd> <i>·</i> Mac’te <kbd>⌘</kbd>+<kbd>V</kbd></span></li></ul></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="iletisim">
+  <div class="footer__cta reveal">
+    <p><b>Sorunuz mu var?</b> Instagram'dan yazın, otomatik asistanımız anında yanıtlasın.</p>
+    <div class="footer__btns"><a class="btn btn--ig" href="https://ig.me/m/gecekonduevent" target="_blank" rel="noopener"><svg class="ig" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle class="ig__dot" cx="17.2" cy="6.8" r="1.05"/></svg> @gecekonduevent</a>
+    <a class="btn btn--wa" data-wa href="https://wa.me/905016480746" target="_blank" rel="noopener"><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 20.4l1.3-4A8.4 8.4 0 1 1 8.1 19.5z"/><path class="wa__h" d="M9 8.3c.2-.5.5-.6.8-.6h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .5-.1.7l-.5.6c-.1.1-.1.3 0 .5.6 1 1.4 1.8 2.4 2.4.2.1.4.1.5 0l.6-.5c.2-.2.5-.2.7-.1l1.6.7c.3.1.4.3.4.5v.5c0 .3-.2.7-.6.8-.9.4-2.1.4-3.6-.5a9.6 9.6 0 0 1-3.4-3.4c-.9-1.5-.9-2.7-.5-3.6z"/></svg> WhatsApp</a>
+  </div>
+  </div>
+  <div class="footer__grid reveal">
+    <div>
+      <a href="#top" class="brand brand--lg"><img class="brand__logo brand__logo--lg" src="assets/logo-120.png" alt="" width="45" height="60"><span>gecekondu<small>EVENT · MANAVGAT</small></span></a>
+      <p class="footer__tag">Her şey dahil organizasyon.<br>Hayalinizdeki anlara ev sahipliği yapıyoruz.</p>
+    </div>
+    <div><h3 class="footer__h">İletişim</h3><ul>
+      <li><a href="https://www.instagram.com/gecekonduevent/" target="_blank" rel="noopener">Instagram · @gecekonduevent</a></li>
+      <li><a data-wa href="https://wa.me/905016480746" target="_blank" rel="noopener">WhatsApp · 0501 648 07 46</a></li>
+      <li class="tel"><span>Telefon</span> <a href="tel:+905016480746">0501 648 07 46</a></li>
+      <li>Manavgat, Antalya</li></ul></div>
+    <div><h3 class="footer__h">Keşfet</h3><ul><li><a href="#mekanlar">Mekânlar</a></li><li><a href="#hizmetler">Hizmetler</a></li><li><a href="#etkinlikler">Etkinlikler</a></li><li><a href="#galeri">Galeri</a></li></ul></div>
+    <div><h3 class="footer__h">Kardeş marka</h3><ul><li><a href="https://www.instagram.com/gecekondumedya/" target="_blank" rel="noopener">Gecekondu Medya ↗</a></li></ul></div>
+  </div>
+  <div class="footer__bottom"><span>© <span id="year">2026</span> Gecekondu Event</span><span>Doğanın içinde unutulmaz anlar.</span></div>
+</footer>
+
+<a class="ig-float" href="https://ig.me/m/gecekonduevent" target="_blank" rel="noopener" aria-label="Instagram DM'den yazın, anında yanıt alın"><svg class="ig" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle class="ig__dot" cx="17.2" cy="6.8" r="1.05"/></svg><span>DM · anında yanıt</span></a>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotoğraf" hidden>
+  <button class="lightbox__close" id="lbClose" aria-label="Kapat">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Önceki">←</button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Sonraki">→</button>
+</div>
+
+<script src="js/film.js"></script>
+<script src="js/app.js"></script>
+<script src="js/butterfly.js"></script>
+
+</body></html>
