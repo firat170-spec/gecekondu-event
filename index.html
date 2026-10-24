@@ -1,6 +1,7 @@
 <!doctype html><html lang="tr"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Gecekondu Event: Manavgat, Antalya'da 350 kişilik kır bahçesi, Üçgen Ev, şömineli loca ve klasik araba köşesi. Düğün, nişan, kına, nikah ve özel günler için her şey dahil organizasyon; 2026–2027 rezervasyonları açık.">
 <meta name="theme-color" content="#0d1324">
+<meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="Gecekondu Event">
@@ -9,16 +10,15 @@
 <meta property="og:image" content="assets/images/48-wedding-a-frame-ceremony-wide-lg.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/logo-120.png" type="image/png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"EventVenue","name":"Gecekondu Event","description":"Manavgat'ta 350 kişilik açık hava kır bahçesinde düğün, nişan, kına, nikah ve özel gün organizasyonları.","maximumAttendeeCapacity":350,"address":{"@type":"PostalAddress","addressLocality":"Manavgat","addressRegion":"Antalya","addressCountry":"TR"},"telephone":"+90 501 648 07 46","sameAs":["https://www.instagram.com/gecekonduevent/","https://www.instagram.com/gecekondumedya/"]}</script><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"EventVenue","name":"Gecekondu Event","description":"Manavgat'ta 350 kişilik açık hava kır bahçesinde düğün, nişan, kına, nikah ve özel gün organizasyonları.","maximumAttendeeCapacity":350,"address":{"@type":"PostalAddress","addressLocality":"Manavgat","addressRegion":"Antalya","addressCountry":"TR"},"telephone":"+90 501 648 07 46","sameAs":["https://www.instagram.com/gecekonduevent/","https://www.instagram.com/gecekondumedya/"]}</script><style>:root{color-scheme:dark;background:#0b0d16;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#0b0d16;color:#f6efe3}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Gecekondu Event</title>
 <script>document.documentElement.lang = 'tr';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600;700&display=swap"></noscript>
 <link rel="preload" as="image" href="assets/frames/f001.webp" media="(min-aspect-ratio: 4/5) and (pointer: fine), (min-aspect-ratio: 4/5) and (orientation: landscape)">
 <link rel="preload" as="image" href="assets/frames-p/f001.webp" media="(max-aspect-ratio: 4/5), (pointer: coarse) and (orientation: portrait)">
-<link rel="preload" as="image" href="assets/intro/intro-16x9.jpg" media="(min-aspect-ratio: 4/5) and (pointer: fine), (min-aspect-ratio: 4/5) and (orientation: landscape)">
-<link rel="preload" as="image" href="assets/intro/intro-9x16.jpg" media="(max-aspect-ratio: 4/5), (pointer: coarse) and (orientation: portrait)">
 <style>
 /* Düzen: kaydırmayla ilerleyen drone filmi zemininde cam paneller ve iki 3D sahne (fotoğraf tüneli, üçgen prizma). Gece temalı tek görünüm. */
 :root{color-scheme:dark;
@@ -556,7 +556,12 @@ html.intro-on,html.intro-on body{overflow:hidden}
 html.intro-on main,html.intro-on .nav,html.intro-on .timebar,html.intro-on .loadbar,html.intro-on .ig-float{opacity:0!important;pointer-events:none}
 main,.nav,.timebar{transition:opacity .9s ease .3s}
 .intro{position:fixed;inset:0;z-index:55;background:#0b0d16;overflow:hidden;transition:opacity .9s ease,background-color .6s ease}
-.intro__video{position:absolute;left:-8vw;top:-8vh;width:116vw;height:116vh;object-fit:cover;display:block;background:#0b0d16;transition:opacity .7s ease}
+.intro__video{position:absolute;left:-8vw;top:-8vh;width:116vw;height:116vh;object-fit:cover;display:block;background:#0b0d16;opacity:0;transition:opacity .7s ease}
+/* video oynamaya başlayana kadar donuk ilk kare yerine koyu zemin + altın halka (iOS videoyu ancak oynatınca indirir) */
+.intro.is-playing .intro__video{opacity:1}
+.intro__load{position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1.5px solid rgba(240,185,107,.18);border-top-color:var(--gold);animation:gkSpin 1s linear infinite;transition:opacity .4s ease;pointer-events:none}
+.intro.is-playing .intro__load,.intro.is-novideo .intro__load{opacity:0}
+@keyframes gkSpin{to{transform:rotate(360deg)}}
 .intro.is-handoff,.intro.is-novideo,.intro.is-out{background-color:transparent}
 .intro.is-handoff .intro__video,.intro.is-novideo .intro__video{opacity:0}
 .intro__scrim{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 1.4s ease;
@@ -596,6 +601,7 @@ main,.nav,.timebar{transition:opacity .9s ease .3s}
 </style>
 <div class="intro" id="intro">
   <video class="intro__video" id="introVideo" muted playsinline preload="auto" aria-hidden="true"></video>
+  <div class="intro__load" aria-hidden="true"></div>
   <div class="intro__scrim" aria-hidden="true"></div>
   <div class="intro__welcome" aria-hidden="true">
     <svg class="intro__logo" viewBox="0 0 272 366" stroke-linecap="round" stroke-linejoin="round">

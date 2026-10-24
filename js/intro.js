@@ -37,14 +37,13 @@
   }
   var portrait = isPortrait();
   var CFG = portrait
-    ? { src: 'assets/intro/intro-9x16.mp4', poster: 'assets/intro/intro-9x16.jpg', bx: 0.5, by: 0.33, bs: 0.137 }
-    : { src: 'assets/intro/intro-16x9.mp4', poster: 'assets/intro/intro-16x9.jpg', bx: 0.5, by: 0.30, bs: 0.05 };
+    ? { src: 'assets/intro/intro-9x16.mp4', bx: 0.5, by: 0.33, bs: 0.137 }
+    : { src: 'assets/intro/intro-16x9.mp4', bx: 0.5, by: 0.30, bs: 0.05 };
 
   var video = document.getElementById('introVideo');
   var welcome = intro.querySelector('.intro__welcome');
   var logo = intro.querySelector('.intro__logo');
   var skipBtn = document.getElementById('introSkip');
-  video.poster = CFG.poster;
   video.src = CFG.src;
   video.muted = true; video.defaultMuted = true; video.playsInline = true; video.autoplay = true;
 
@@ -147,7 +146,7 @@
   video.addEventListener('loadedmetadata', layout);
 
   var started = false;
-  function begin() { if (started || phase !== 'video') return; started = true; requestAnimationFrame(tick); }
+  function begin() { if (started || phase !== 'video') return; started = true; intro.classList.add('is-playing'); requestAnimationFrame(tick); }
   video.addEventListener('playing', begin);
   function play() {
     // Yüklenmesi beklenmeden hemen başlatılır: iOS (Safari ve iOS'taki tüm tarayıcılar) oynatma istenmeden
