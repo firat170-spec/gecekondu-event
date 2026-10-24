@@ -150,7 +150,7 @@
     if (fallback && loadedCount === COUNT) fallback = null;
 
     // 3D eğim: fare + kaydırmaya bağlı kamera hareketi
-    if (!reduce) {
+    if (!reduce && !(window.GK_INTRO && window.GK_INTRO.active)) {   // intro sırasında film sabit kalır (video son karesiyle hizalı)
       var rx = mouse.sy * -2.2 + Math.sin(prog * Math.PI * 2) * 1.5;
       var ry = mouse.sx * 3.2;
       var sc = 1.0 + prog * 0.08;

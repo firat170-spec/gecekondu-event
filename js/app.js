@@ -25,7 +25,9 @@
     var p = e.detail; loadFill.style.transform = 'scaleX(' + p.toFixed(3) + ')';
     if (p >= 0.999) loadbar.classList.add('is-done');
   });
-  requestAnimationFrame(function () { $$('.hero .reveal').forEach(function (el) { el.classList.add('is-in'); }); });
+  // Hero girişi: açılış introsu varsa o bitince oynar
+  function heroIn() { requestAnimationFrame(function () { $$('.hero .reveal').forEach(function (el) { el.classList.add('is-in'); }); }); }
+  if (window.GK_INTRO && window.GK_INTRO.active) window.GK_INTRO.onDone(heroIn); else heroIn();
 
   // ---- Navigasyon ----
   var nav = $('#nav'), burger = $('#burger'), igFloat = $('.ig-float');

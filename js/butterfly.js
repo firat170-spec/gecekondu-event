@@ -139,15 +139,48 @@
   hindL.add(new T.Mesh(wingGeo(HIND, 1), wingMat)); hindR.add(new T.Mesh(wingGeo(HIND, -1), wingMat));
   hindL.position.z = hindR.position.z = -0.25;
   model.add(wingL, wingR, hindL, hindR);
+
+  // ---------- Fotoğraf dokulu kanatlar (açılış introsundaki kelebeğin aynısı) ----------
+  // assets/butterfly/kelebek-kanat.webp: üstten görünüm, gövde silinmiş; yerel [-32,32]² → doku (u=(x+32)/64, v=(y+32)/64).
+  // Yüklenince prosedürel kanatların yerini alır; yüklenemezse eski kanatlar kalır.
+  var PHOTO_URL = 'assets/butterfly/kelebek-kanat.webp';
+  var BOUND = [[-1.69, 0.06], [-1.85, 0], [-4.34, -0.19], [-7.11, -0.39], [-9.87, -0.55], [-12.64, -0.72], [-15.41, -0.83], [-17.62, -0.94], [-20.11, -1.11], [-32, -1.11]];
+  var TOP = 19.8, BOT = -20.6, BX = 1.5;
+  function polyGeo(pts, sx) {
+    var s = new T.Shape(); s.moveTo(pts[0][0] * sx, pts[0][1]);
+    for (var i = 1; i < pts.length; i++) s.lineTo(pts[i][0] * sx, pts[i][1]);
+    s.closePath();
+    var g = new T.ShapeGeometry(s), pos = g.attributes.position, uv = g.attributes.uv;
+    for (var j = 0; j < pos.count; j++) uv.setXY(j, (pos.getX(j) + 32) / 64, (pos.getY(j) + 32) / 64);
+    uv.needsUpdate = true; return g;
+  }
+  var forePts = [[-BX, TOP], [-32, TOP], [-32, BOUND[BOUND.length - 1][1]]].concat(BOUND.slice(1, -1).reverse(), [[-BX, BOUND[0][1]]]);
+  var hindPts = [[-BX, BOUND[0][1]]].concat(BOUND.slice(1), [[-32, BOT], [-BX, BOT]]);
+  new T.TextureLoader().load(PHOTO_URL, function (ptex) {
+    ptex.colorSpace = T.SRGBColorSpace; ptex.anisotropy = 4;
+    var pmat = new T.MeshStandardMaterial({ map: ptex, emissiveMap: ptex, emissive: 0xffffff, emissiveIntensity: 0.22,
+      roughness: 0.55, metalness: 0.05, side: T.DoubleSide, transparent: true, alphaTest: 0.35 });
+    [[wingL, forePts, 1], [wingR, forePts, -1], [hindL, hindPts, 1], [hindR, hindPts, -1]].forEach(function (w) {
+      while (w[0].children.length) w[0].remove(w[0].children[0]);
+      w[0].add(new T.Mesh(polyGeo(w[1], w[2]), pmat));
+    });
+    // gövde oranları fotoğraftaki kelebeğe göre
+    thorax.scale.set(1.9, 3.6, 2.0); thorax.position.y = 1.4;
+    abdomen.scale.set(1.35, 7.2, 1.4); abdomen.position.y = -6.6;
+    headM.scale.setScalar(1.55); headM.position.y = 5.3;
+    antennae.forEach(function (o) { o.position.y -= 2.2; });
+  });
   var sph = new T.SphereGeometry(1, 18, 12);
   var thorax = new T.Mesh(sph, bodyMat); thorax.scale.set(2.1, 4.4, 2.2); thorax.position.y = 2.4;
   var abdomen = new T.Mesh(sph, bodyMat); abdomen.scale.set(1.55, 7.8, 1.6); abdomen.position.y = -6.4;
   var headM = new T.Mesh(sph, bodyMat); headM.scale.setScalar(1.75); headM.position.y = 7.3;
   model.add(thorax, abdomen, headM);
+  var antennae = [];
   [1, -1].forEach(function (s) {
     var curve = new T.CatmullRomCurve3([new T.Vector3(0.6 * s, 8.4, 0.6), new T.Vector3(2.4 * s, 12.5, 1.6), new T.Vector3(5.6 * s, 16.8, 2.2)]);
-    model.add(new T.Mesh(new T.TubeGeometry(curve, 14, 0.28, 5, false), bodyMat));
+    var tube = new T.Mesh(new T.TubeGeometry(curve, 14, 0.28, 5, false), bodyMat); model.add(tube);
     var club = new T.Mesh(sph, bodyMat); club.scale.setScalar(0.8); club.position.set(5.6 * s, 16.8, 2.2); model.add(club);
+    antennae.push(tube, club);
   });
 
   // yumuşak altın hâle
@@ -276,6 +309,9 @@
     return { mode: 'hover', key: key + ':air', p: { x: Math.min(r.right - 40, W - 56), y: clamp(r.top + 40, 120, H * 0.3) }, r: 10 };
   }
   function goal() {
+    // Açılış introsu (js/intro.js) sürerken hedefi intro belirler
+    var IN = window.GK_INTRO;
+    if (IN && IN.goal) { var ig = IN.goal(); if (ig) return ig; }
     if (state.finalLanded) {
       if (formComplete()) return { mode: 'perch', key: 'final', p: onTop(igSend.getBoundingClientRect(), 24), facing: -1 };
       state.finalLanded = false;
@@ -351,6 +387,13 @@
 
   function step(dt) {
     clock += dt;
+    // Intro devri: videodaki kelebeğin ekrandaki yerinden uçmaya başla
+    var IN = window.GK_INTRO;
+    if (IN && IN.teleport) {
+      toWorld(IN.teleport.x, IN.teleport.y, 0, pos); bfly.position.copy(pos);
+      vel.set(0, 90, 0); state.landed = false; state.key = 'intro:tp'; state.heading = Math.PI / 2;
+      IN.teleport = null; gCache = null; burst(12);
+    }
     // Hedef seçimi (sayfa öğelerinin konumunu ölçer) saniyede ~20 kez; konarken her kare, böylece öğeyle birlikte kayar
     goalAge += dt;
     if (!gCache || gCache.mode === 'perch' || goalAge > 0.05) { gCache = goal(); goalAge = 0; }
@@ -450,7 +493,7 @@
     if (calm && ++skip < 2) return;
     skip = 0;
     var dt = Math.min((now - last) / 1000, 0.06); last = now;
-    canvas.style.opacity = nav && nav.classList.contains('is-open') ? '0' : '1';
+    canvas.style.opacity = (nav && nav.classList.contains('is-open')) || (window.GK_INTRO && window.GK_INTRO.hideBf) ? '0' : '1';
     step(dt);
     renderer.render(scene, camera);
   }
