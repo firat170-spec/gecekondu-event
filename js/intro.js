@@ -46,7 +46,7 @@
   var skipBtn = document.getElementById('introSkip');
   video.poster = CFG.poster;
   video.src = CFG.src;
-  video.muted = true; video.defaultMuted = true; video.playsInline = true;
+  video.muted = true; video.defaultMuted = true; video.playsInline = true; video.autoplay = true;
 
   var api = window.GK_INTRO = {
     active: true, hideBf: true, goal: null, teleport: null, done: [],
@@ -147,24 +147,24 @@
   video.addEventListener('loadedmetadata', layout);
 
   var started = false;
+  function begin() { if (started || phase !== 'video') return; started = true; requestAnimationFrame(tick); }
+  video.addEventListener('playing', begin);
   function play() {
+    // Yüklenmesi beklenmeden hemen başlatılır: iOS (Safari ve iOS'taki tüm tarayıcılar) oynatma istenmeden
+    // videoyu yüklemez, "canplay" hiç gelmez ve ekranda ilk kare takılı kalırdı.
     var pr = video.play();
-    if (pr && pr.then) pr.then(function () { started = true; requestAnimationFrame(tick); })
-      .catch(function () { noVideo(); });
-    else { started = true; requestAnimationFrame(tick); }
+    if (pr && pr.then) pr.then(begin, function (e) { if (!e || e.name !== 'AbortError') noVideo(); });
   }
-  // Ağ yavaşsa ya da otomatik oynatma engellenirse: videosuz kısa karşılama
+  // Ağ yavaşsa ya da otomatik oynatma engellenirse (ör. iPhone Düşük Güç Modu): videosuz kısa karşılama
   function noVideo() {
     if (started || phase !== 'video') return;
+    try { video.pause(); } catch (e) {}
     intro.classList.add('is-novideo');
     startWelcome();
     later(handoff, 1400);
   }
-  if (video.readyState >= 3) play();
-  else {
-    video.addEventListener('canplay', function once() { video.removeEventListener('canplay', once); if (phase === 'video') play(); });
-    later(function () { if (!started) noVideo(); }, 4500);
-  }
+  play();
+  later(function () { if (!started) noVideo(); }, 4500);
   video.addEventListener('error', noVideo);
 
   skipBtn.addEventListener('click', finish);
