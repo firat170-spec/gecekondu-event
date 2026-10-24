@@ -311,10 +311,28 @@
     if (r.top > 96 && r.top < H - 90) return { mode: 'perch', key: key, p: onTop(r, 40), facing: -1 };
     return { mode: 'hover', key: key + ':air', p: { x: Math.min(r.right - 40, W - 56), y: clamp(r.top + 40, 120, H * 0.3) }, r: 10 };
   }
+  // Form tepkileri (js/app.js çağırır): eksik alanda telaşlı çırpınma, mesaj hazır olunca düğme çevresinde sevinç turu
+  var react = null;
+  window.GK_BFLY = {
+    warn: function (el) { if (el) { react = { kind: 'warn', el: el, t0: clock, dur: 4, hit: 0 }; burst(10); } },
+    celebrate: function () { react = { kind: 'party', el: igSend, t0: clock, dur: 2.6 }; burst(24); }
+  };
+  function reactGoal() {
+    var age = clock - react.t0;
+    // uyarı alana vardıktan sonra 1,3 sn sürer (uzaktan geliyorsa yolda harcanmasın)
+    if (age > react.dur || (react.hit && clock - react.hit > 1.3)) { react = null; return null; }
+    var r = react.el.getBoundingClientRect();
+    if (react.kind === 'warn') return { mode: 'hover', key: 'warn', p: { x: r.right - 22, y: r.top - 16 }, r: 6, flutter: true };
+    // düğmenin çevresinde ~2 tur; tur yarıçapı düğmeye göre
+    var a = -Math.PI / 2 + age * 4.8, rx = Math.min(r.width * 0.5 + 24, W * 0.42), ry = r.height * 0.5 + 44;
+    return { mode: 'hover', key: 'party', p: { x: r.left + r.width / 2 + Math.cos(a) * rx, y: r.top + r.height / 2 + Math.sin(a) * ry }, r: 0, party: true };
+  }
+
   function goal() {
     // Açılış introsu (js/intro.js) sürerken hedefi intro belirler
     var IN = window.GK_INTRO;
     if (IN && IN.goal) { var ig = IN.goal(); if (ig) return ig; }
+    if (react) { var rg = reactGoal(); if (rg) return rg; }
     if (state.finalLanded) {
       if (formComplete()) return { mode: 'perch', key: 'final', p: onTop(igSend.getBoundingClientRect(), 24), facing: -1 };
       state.finalLanded = false;
@@ -436,7 +454,11 @@
     // hedef nokta (ekran px → dünya)
     var px = g.p.x, py = g.p.y, z = 0;
     if (g.mode === 'perch') py -= 6 * SCALE;
-    else if (g.mode === 'hover') { var R = g.r || 22; px += Math.cos(t * 1.7) * R; py += Math.sin(t * 2.3) * R * 0.55; z = Math.sin(t * 0.9) * 45; }
+    else if (g.mode === 'hover') {
+      var R = g.r === 0 ? 0 : g.r || 22; px += Math.cos(t * 1.7) * R; py += Math.sin(t * 2.3) * R * 0.55; z = Math.sin(t * 0.9) * 45;
+      if (g.flutter) { px += Math.sin(t * 21) * 7; py += Math.sin(t * 13) * 3; }
+      if (g.party) z = Math.sin(t * 4.8) * 90;
+    }
     else { px += Math.sin(t * 0.8) * 70; py += Math.cos(t * 1.1) * 45; z = Math.sin(t * 0.45) * 150 + Math.sin(t * 0.21) * 60; }
     if (g.mode !== 'perch') { px = clamp(px, 36, W - 36); py = clamp(py, 86, H - 44); }
     toWorld(px, py, z, goalW);
@@ -452,6 +474,7 @@
       var maxA = 3000 * dt; if (tmp.length() > maxA) tmp.setLength(maxA);
       vel.add(tmp); pos.addScaledVector(vel, dt);
       speed = Math.hypot(vel.x, vel.y);
+      if (react && react.kind === 'warn' && !react.hit && d < 60) react.hit = clock;
       if (g.mode === 'perch' && d < 3 && vel.length() < 70) {
         state.landed = true; pos.copy(goalW); vel.set(0, 0, 0);
         state.openT = -1; state.nextOpen = t + 1.1;
@@ -491,6 +514,7 @@
     } else {
       var fr = 5.2 + Math.min(speed / 380, 3.6);
       if (g.mode === 'perch' && d < 90) fr = 9.5;
+      if (g.flutter) fr = 12;
       state.phase += dt * fr * Math.PI * 2;
       if (state.glide > 0) { state.glide -= dt; theta = 0.2 + Math.sin(t * 3) * 0.05; hind = theta * 0.9; }
       else {
@@ -507,7 +531,7 @@
     aura.position.copy(pos);
     aura.material.opacity = (state.landed ? 0.2 + 0.07 * Math.sin(t * 2) : 0.32) * (match ? 0.25 + 0.75 * ease((match.t - match.hold) / 1.6) : 1);
     if (!state.landed) {
-      state.emitAcc += dt * (38 + Math.min(speed * 0.11, 120));
+      state.emitAcc += dt * (38 + Math.min(speed * 0.11, 120)) * (g.party ? 2.5 : g.flutter ? 1.6 : 1);
       while (state.emitAcc >= 1) { state.emitAcc -= 1; emit(pos.x, pos.y, pos.z, vel.x, vel.y, 12 * SCALE, false); }
     } else if (Math.random() < dt * 1.4) emit(pos.x, pos.y, pos.z, 0, 0, 18 * SCALE, true);
     updateSparks(dt, t);

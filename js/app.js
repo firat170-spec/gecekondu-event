@@ -331,7 +331,9 @@
     if (!typeOk || !dateOk) {
       ok.textContent = '';
       err.textContent = 'Önce organizasyon türünü ve tarihi seçin. Tarih belli değilse “Tarih henüz belli değil” kutusunu işaretleyin.';
-      (typeOk ? dateEl : typeEl).focus(); return false;
+      (typeOk ? dateEl : typeEl).focus();
+      if (window.GK_BFLY) window.GK_BFLY.warn(typeOk ? dateEl : typeEl);   // kelebek eksik alanı gösterir
+      return false;
     }
     err.textContent = ''; return true;
   }
@@ -351,6 +353,7 @@
         msgOut.hidden = true;
         ok.textContent = 'Mesajınız hazır ve kopyalandı. Instagram\'da Gönder\'e dokunun; kutu boşsa basılı tutup “Yapıştır”ı seçin.';
         showToast('Mesajınız hazır. Instagram\'da Gönder\'e dokunun, asistanımız anında yanıtlasın.');
+        if (window.GK_BFLY) window.GK_BFLY.celebrate();
       } else {
         msgOut.hidden = false; msgOut.value = msg; msgOut.focus(); msgOut.select();
         ok.textContent = 'Otomatik kopyalama yapılamadı. Aşağıdaki metni seçip kopyalayın, sonra Instagram\'da gönderin.';
