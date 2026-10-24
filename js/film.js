@@ -13,8 +13,19 @@
   // Kare setleri:
   //  frames   — 1280×720, yatay ekranlar
   //  frames-p — 540×720, ortadan kırpılmış; dikey ekranda görünen şerit aynı çözünürlükte, dosya yarı boyutta
+  // Dikey ekran mı? Pencere oranına ek olarak dokunmatik cihazın yönüne de bakar: bazı uygulama içi
+  // tarayıcılar (Instagram, WhatsApp) sayfa açılırken pencere boyutunu yanlış/0 bildirir ve yatay seçilirdi.
+  // intro.js ve film.js aynı kararı vermeli (intro'nun son karesi filmin ilk karesine birebir oturur).
+  function isPortrait() {
+    var mq = function (q) { return !!(window.matchMedia && window.matchMedia(q).matches); };
+    if (mq('(max-aspect-ratio: 4/5)')) return true;
+    var touch = mq('(pointer: coarse)');
+    if (touch && mq('(orientation: portrait)')) return true;
+    if (!(window.innerWidth > 0 && window.innerHeight > 0)) return touch && screen.height > screen.width;
+    return false;
+  }
   function pickDir() {
-    return window.innerWidth / window.innerHeight < 0.8 ? 'assets/frames-p/' : 'assets/frames/';
+    return isPortrait() ? 'assets/frames-p/' : 'assets/frames/';
   }
   var DIR = pickDir();
   var COUNT = 179;

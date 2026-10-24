@@ -24,7 +24,18 @@
   root.classList.add('intro-on');
 
   // Video seti: dikey ekranlarda 9:16, diğerlerinde 16:9. bx/by = son karede kelebeğin yeri, bs = kanat açıklığı (kare oranı)
-  var portrait = window.innerWidth / window.innerHeight < 0.8;
+  // Dikey ekran mı? Pencere oranına ek olarak dokunmatik cihazın yönüne de bakar: bazı uygulama içi
+  // tarayıcılar (Instagram, WhatsApp) sayfa açılırken pencere boyutunu yanlış/0 bildirir ve yatay seçilirdi.
+  // intro.js ve film.js aynı kararı vermeli (intro'nun son karesi filmin ilk karesine birebir oturur).
+  function isPortrait() {
+    var mq = function (q) { return !!(window.matchMedia && window.matchMedia(q).matches); };
+    if (mq('(max-aspect-ratio: 4/5)')) return true;
+    var touch = mq('(pointer: coarse)');
+    if (touch && mq('(orientation: portrait)')) return true;
+    if (!(window.innerWidth > 0 && window.innerHeight > 0)) return touch && screen.height > screen.width;
+    return false;
+  }
+  var portrait = isPortrait();
   var CFG = portrait
     ? { src: 'assets/intro/intro-9x16.mp4', poster: 'assets/intro/intro-9x16.jpg', bx: 0.5, by: 0.33, bs: 0.137 }
     : { src: 'assets/intro/intro-16x9.mp4', poster: 'assets/intro/intro-16x9.jpg', bx: 0.5, by: 0.30, bs: 0.05 };
