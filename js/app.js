@@ -78,11 +78,20 @@
   var D = 760, items = [];
   TUNNEL.forEach(function (t, i) {
     var f = document.createElement('figure'); f.className = 'tn';
-    f.innerHTML = '<img src="' + IMG + t[0] + '-lg.webp" alt="' + t[1] + ' — Gecekondu Event" ' + (i > 3 ? 'loading="lazy"' : '') + ' decoding="async"><figcaption>' + t[1] + '</figcaption>';
+    f.innerHTML = '<img data-src="' + IMG + t[0] + '-lg.webp" alt="' + t[1] + ' — Gecekondu Event" decoding="async"><figcaption>' + t[1] + '</figcaption>';
     world.appendChild(f);
     var side = i % 2 ? 1 : -1;
     items.push({ el: f, z: -(i + 1) * D, xs: side * (0.2 + (i % 3) * 0.06), ys: ((i * 37) % 7 - 3) * 0.035, rot: side * -6, chap: t[1] });
   });
+  // Tünel fotoğrafları (≈3 MB) 3D'de gizli durduğu için tarayıcının tembel yüklemesi onları hemen indiriyordu;
+  // açılış introsunun videosuyla bant genişliği yarışıyordu. Artık intro bitince ve bölüm yaklaşınca inerler.
+  var tunLoad = new IntersectionObserver(function (es) {
+    if (!es[0].isIntersecting) return;
+    $$('img[data-src]', world).forEach(function (im) { im.src = im.getAttribute('data-src'); im.removeAttribute('data-src'); });
+    tunLoad.disconnect();
+  }, { rootMargin: '150% 0px' });
+  if (window.GK_INTRO && window.GK_INTRO.active) window.GK_INTRO.onDone(function () { tunLoad.observe(tunnel); });
+  else tunLoad.observe(tunnel);
   var tunnelDepth = (TUNNEL.length + 1) * D;
   function sizeTunnel() { tunnel.style.height = (window.innerHeight + tunnelDepth * (window.innerWidth < 760 ? 0.75 : 0.95)) + 'px'; }
   sizeTunnel();

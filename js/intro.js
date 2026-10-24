@@ -48,7 +48,7 @@
   video.muted = true; video.defaultMuted = true; video.playsInline = true; video.autoplay = true;
 
   var api = window.GK_INTRO = {
-    active: true, hideBf: true, goal: null, teleport: null, done: [],
+    active: true, playing: false, buffered: false, hideBf: true, goal: null, teleport: null, done: [],
     onDone: function (fn) { if (api.active) api.done.push(fn); else fn(); }
   };
 
@@ -125,6 +125,7 @@
     try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {}
     setTimeout(function () {
       api.active = false;
+      window.dispatchEvent(new Event('gk:intro'));
       var d = api.done.slice(); api.done.length = 0;
       d.forEach(function (fn) { try { fn(); } catch (e) {} });
     }, 420);                                       // "Hoş geldiniz" sönmeden hero yazısı gelmesin
@@ -146,7 +147,7 @@
   video.addEventListener('loadedmetadata', layout);
 
   var started = false;
-  function begin() { if (started || phase !== 'video') return; started = true; intro.classList.add('is-playing'); requestAnimationFrame(tick); }
+  function begin() { if (started || phase !== 'video') return; started = true; api.playing = true; intro.classList.add('is-playing'); window.dispatchEvent(new Event('gk:intro')); requestAnimationFrame(tick); }
   video.addEventListener('playing', begin);
   function play() {
     // Yüklenmesi beklenmeden hemen başlatılır: iOS (Safari ve iOS'taki tüm tarayıcılar) oynatma istenmeden
@@ -163,7 +164,21 @@
     later(handoff, 1400);
   }
   play();
-  later(function () { if (!started) noVideo(); }, 4500);
+  // Videosuz karşılamaya geçiş: 4,5 sn'de hiç veri gelmiyorsa ya da 2,5 sn'dir ilerleme yoksa; video inmeye
+  // devam ediyorsa (yavaş mobil ağ) yükleme halkasıyla en çok 9 sn beklenir.
+  var t0 = Date.now(), lastProgress = 0;
+  video.addEventListener('progress', function () {
+    lastProgress = Date.now();
+    // video tamamen indiyse sitenin film kareleri inmeye başlayabilir (film.js bekliyor)
+    var d = video.duration, b = video.buffered;
+    if (!api.buffered && d && b.length && b.end(b.length - 1) >= d - 0.1) { api.buffered = true; window.dispatchEvent(new Event('gk:intro')); }
+  });
+  (function watch() {
+    if (started || phase !== 'video') return;
+    var age = Date.now() - t0;
+    if (age > 9000 || (age > 4500 && (!lastProgress || Date.now() - lastProgress > 2500))) return noVideo();
+    later(watch, 300);
+  })();
   video.addEventListener('error', noVideo);
 
   skipBtn.addEventListener('click', finish);

@@ -43,8 +43,16 @@
     for (var i = 0; i < COUNT; i += step) if (!seen[i]) { seen[i] = 1; order.push(i); }
   });
   var inflight = 0, cursor = 0, MAX = 6, gen = 0;
+  // Açılış introsu sürerken bant genişliği intro videosuna kalsın (yavaş mobil ağda video takılmasın):
+  // video tamamen inene dek yalnızca ilk kare (intro'nun son karesiyle aynı, devirde gerekir), sonra tam hız.
+  function limit() {
+    var IN = window.GK_INTRO;
+    if (!IN || !IN.active || IN.buffered) return MAX;
+    return cursor === 0 ? 1 : 0;
+  }
+  window.addEventListener('gk:intro', function () { pump(); });
   function pump() {
-    while (inflight < MAX && cursor < order.length) {
+    while (inflight < limit() && cursor < order.length) {
       (function (i, g) {
         var img = new Image(); img.decoding = 'async'; inflight++;
         img.onload = function () { inflight--; if (g !== gen) return pump(); frames[i] = img; loaded[i] = true; loadedCount++; dirty = true; pump();
