@@ -130,6 +130,7 @@
   var tex = wingTexture();
   var wingMat = new T.MeshStandardMaterial({ map: tex, emissiveMap: tex, emissive: 0xffffff, emissiveIntensity: 0.55,
     roughness: 0.32, metalness: 0.18, side: T.DoubleSide, transparent: true, alphaTest: 0.04 });
+  wingMat.userData.emissive0 = 0.55;
   var bodyMat = new T.MeshStandardMaterial({ color: 0x1c1512, roughness: 0.5, metalness: 0.25, emissive: 0x5a2a12, emissiveIntensity: 0.35 });
 
   var bfly = new T.Group(); scene.add(bfly);
@@ -154,12 +155,14 @@
     for (var j = 0; j < pos.count; j++) uv.setXY(j, (pos.getX(j) + 32) / 64, (pos.getY(j) + 32) / 64);
     uv.needsUpdate = true; return g;
   }
+  var wingMats = [wingMat];   // intro devrinde tonu videodaki kelebeğe eşitlemek için
   var forePts = [[-BX, TOP], [-32, TOP], [-32, BOUND[BOUND.length - 1][1]]].concat(BOUND.slice(1, -1).reverse(), [[-BX, BOUND[0][1]]]);
   var hindPts = [[-BX, BOUND[0][1]]].concat(BOUND.slice(1), [[-32, BOT], [-BX, BOT]]);
   new T.TextureLoader().load(PHOTO_URL, function (ptex) {
     ptex.colorSpace = T.SRGBColorSpace; ptex.anisotropy = 4;
     var pmat = new T.MeshStandardMaterial({ map: ptex, emissiveMap: ptex, emissive: 0xffffff, emissiveIntensity: 0.22,
       roughness: 0.55, metalness: 0.05, side: T.DoubleSide, transparent: true, alphaTest: 0.35 });
+    pmat.userData.emissive0 = 0.22; wingMats = [pmat];
     [[wingL, forePts, 1], [wingR, forePts, -1], [hindL, hindPts, 1], [hindR, hindPts, -1]].forEach(function (w) {
       while (w[0].children.length) w[0].remove(w[0].children[0]);
       w[0].add(new T.Mesh(polyGeo(w[1], w[2]), pmat));
@@ -365,6 +368,13 @@
   var vHead = new T.Vector3(), vDors = new T.Vector3(), vSpan = new T.Vector3(), YAXIS = new T.Vector3(0, 1, 0);
   var state = { landed: true, key: 'perch:hero', heading: Math.PI, turn: 0, phase: 0, glide: 0, nextGlide: 3, openT: -1, nextOpen: 1.2, finalLanded: false, emitAcc: 0 };
   var clock = 0, gCache = null, goalAge = 0;
+  // Intro devri: videodaki kelebeğin pozu (üstten, kanatlar açık), boyu ve puslu tonuyla doğar, sonra kendine döner
+  var match = null, HAZE = new T.Color(0.8, 0.7, 0.64), WHITE = new T.Color(1, 1, 1);
+  function setLook(size, haze) {
+    bfly.scale.setScalar(size);
+    aura.scale.set(120 * SCALE * size, 120 * SCALE * size, 1);
+    wingMats.forEach(function (m) { m.color.copy(WHITE).lerp(HAZE, haze); m.emissiveIntensity = m.userData.emissive0 * (1 - 0.65 * haze); });
+  }
 
   // Konmuş poz: kenarın üstünde yandan, 3/4 açıdan; kanatlar kapalıyken yukarıda yelken gibi durur
   function perchQuat(facing, out) {
@@ -390,9 +400,30 @@
     // Intro devri: videodaki kelebeğin ekrandaki yerinden uçmaya başla
     var IN = window.GK_INTRO;
     if (IN && IN.teleport) {
-      toWorld(IN.teleport.x, IN.teleport.y, 0, pos); bfly.position.copy(pos);
-      vel.set(0, 90, 0); state.landed = false; state.key = 'intro:tp'; state.heading = Math.PI / 2;
-      IN.teleport = null; gCache = null; burst(12);
+      var tp = IN.teleport;
+      toWorld(tp.x, tp.y, 0, pos); bfly.position.copy(pos);
+      vel.set(0, 0, 0); state.landed = false; state.key = 'intro:tp'; state.heading = Math.PI / 2;
+      match = { t: 0, hold: tp.hold || 0, size: tp.span ? tp.span / (64 * SCALE) : 1 };
+      bfly.quaternion.identity(); setLook(match.size, 1);
+      IN.teleport = null; gCache = null;
+    }
+    if (match) {
+      match.t += dt;
+      var mt = match.t - match.hold;
+      if (mt < 0) {
+        // videodaki son poz: yerinde süzülür, kanatlar yavaşça çırpar
+        state.phase += dt * 2.6 * Math.PI * 2;
+        var th = 0.18 + 0.16 * Math.sin(state.phase);
+        wingL.rotation.y = th; wingR.rotation.y = -th; hindL.rotation.y = th * 0.85; hindR.rotation.y = -th * 0.85;
+        model.position.y = Math.cos(state.phase) * 0.8;
+        aura.position.copy(pos); aura.material.opacity = 0.06;
+        updateSparks(dt, clock);
+        return;
+      }
+      if (mt - dt < 0) { vel.set(0, 70, 0); burst(8); }
+      var ms = ease(mt / 1.1), mh = ease(mt / 1.6);
+      setLook(match.size + (1 - match.size) * ms, 1 - mh);
+      if (mt > 1.6) { match = null; setLook(1, 0); }
     }
     // Hedef seçimi (sayfa öğelerinin konumunu ölçer) saniyede ~20 kez; konarken her kare, böylece öğeyle birlikte kayar
     goalAge += dt;
@@ -474,7 +505,7 @@
 
     // hâle ve ışıltılar
     aura.position.copy(pos);
-    aura.material.opacity = state.landed ? 0.2 + 0.07 * Math.sin(t * 2) : 0.32;
+    aura.material.opacity = (state.landed ? 0.2 + 0.07 * Math.sin(t * 2) : 0.32) * (match ? 0.25 + 0.75 * ease((match.t - match.hold) / 1.6) : 1);
     if (!state.landed) {
       state.emitAcc += dt * (38 + Math.min(speed * 0.11, 120));
       while (state.emitAcc >= 1) { state.emitAcc -= 1; emit(pos.x, pos.y, pos.z, vel.x, vel.y, 12 * SCALE, false); }

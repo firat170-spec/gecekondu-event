@@ -23,11 +23,11 @@
   var root = document.documentElement;
   root.classList.add('intro-on');
 
-  // Video seti: dikey ekranlarda 9:16, diğerlerinde 16:9. bx/by = son karede kelebeğin yeri (kare oranı)
+  // Video seti: dikey ekranlarda 9:16, diğerlerinde 16:9. bx/by = son karede kelebeğin yeri, bs = kanat açıklığı (kare oranı)
   var portrait = window.innerWidth / window.innerHeight < 0.8;
   var CFG = portrait
-    ? { src: 'assets/intro/intro-9x16.mp4', poster: 'assets/intro/intro-9x16.jpg', bx: 0.5, by: 0.33 }
-    : { src: 'assets/intro/intro-16x9.mp4', poster: 'assets/intro/intro-16x9.jpg', bx: 0.5, by: 0.30 };
+    ? { src: 'assets/intro/intro-9x16.mp4', poster: 'assets/intro/intro-9x16.jpg', bx: 0.5, by: 0.33, bs: 0.137 }
+    : { src: 'assets/intro/intro-16x9.mp4', poster: 'assets/intro/intro-16x9.jpg', bx: 0.5, by: 0.30, bs: 0.05 };
 
   var video = document.getElementById('introVideo');
   var welcome = intro.querySelector('.intro__welcome');
@@ -48,7 +48,7 @@
     var cw = W * 1.16, ch = H * 1.16, cx = -W * 0.08, cy = -H * 0.08;
     var vw = video.videoWidth || (portrait ? 1080 : 1920), vh = video.videoHeight || (portrait ? 1920 : 1080);
     var s = Math.max(cw / vw, ch / vh), dw = vw * s, dh = vh * s;
-    return { x: cx + (cw - dw) / 2 + fx * dw, y: cy + (ch - dh) / 2 + fy * dh };
+    return { x: cx + (cw - dw) / 2 + fx * dw, y: cy + (ch - dh) / 2 + fy * dh, w: dw };
   }
   var P = { x: 0, y: 0 };
   function layout() {
@@ -80,8 +80,10 @@
     if (phase === 'video') startWelcome();
     phase = 'handoff';
     // canlı kelebek videodaki kelebeğin yerinden devralır, logonun tepesine konar
-    api.teleport = { x: P.x, y: P.y };
-    var t0 = performance.now();
+    // aynı yer, aynı boy; 0,45 sn videodaki pozda bekler (video altında söner), sonra uçar
+    var HOLD = 450;
+    api.teleport = { x: P.x, y: P.y, span: CFG.bs * P.w, hold: HOLD / 1000 };
+    var t0 = performance.now() + HOLD;
     api.goal = function () {
       var pp = perchPoint();
       // önce logonun üstünde kısa bir tur, sonra kemerin tepesine konuş
@@ -115,7 +117,7 @@
       api.active = false;
       var d = api.done.slice(); api.done.length = 0;
       d.forEach(function (fn) { try { fn(); } catch (e) {} });
-    }, 250);
+    }, 420);                                       // "Hoş geldiniz" sönmeden hero yazısı gelmesin
     setTimeout(function () { if (intro.parentNode) intro.parentNode.removeChild(intro); }, 1500);
   }
 

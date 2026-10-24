@@ -554,7 +554,7 @@ h3{font-size:26px}
 <style>
 html.intro-on,html.intro-on body{overflow:hidden}
 html.intro-on main,html.intro-on .nav,html.intro-on .timebar,html.intro-on .loadbar,html.intro-on .ig-float{opacity:0!important;pointer-events:none}
-main,.nav,.timebar{transition:opacity .9s ease}
+main,.nav,.timebar{transition:opacity .9s ease .3s}
 .intro{position:fixed;inset:0;z-index:55;background:#0b0d16;overflow:hidden;transition:opacity .9s ease,background-color .6s ease}
 .intro__video{position:absolute;left:-8vw;top:-8vh;width:116vw;height:116vh;object-fit:cover;display:block;background:#0b0d16;transition:opacity .7s ease}
 .intro.is-handoff,.intro.is-novideo,.intro.is-out{background-color:transparent}
@@ -562,6 +562,7 @@ main,.nav,.timebar{transition:opacity .9s ease}
 .intro__scrim{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 1.4s ease;
   background:radial-gradient(58% 52% at 50% 44%,rgba(8,9,16,.66) 0%,rgba(8,9,16,.42) 42%,rgba(8,9,16,.14) 74%,rgba(8,9,16,0) 100%),
              linear-gradient(180deg,rgba(8,9,16,.38) 0%,rgba(8,9,16,0) 32%,rgba(8,9,16,0) 66%,rgba(8,9,16,.5) 100%)}
+.intro.is-draw .intro__scrim{opacity:.55}
 .intro.is-welcome .intro__scrim{opacity:1}
 .intro__welcome{position:absolute;left:0;right:0;top:var(--logo-top,28vh);display:flex;flex-direction:column;align-items:center;text-align:center;pointer-events:none;padding:0 16px}
 .intro__logo{display:block;height:var(--logo-h,24vh);width:auto;overflow:visible;filter:drop-shadow(0 0 14px rgba(255,196,120,.38)) drop-shadow(0 6px 30px rgba(0,0,0,.35));transition:transform 1s cubic-bezier(.7,0,.2,1),opacity 1s ease}
@@ -584,7 +585,7 @@ main,.nav,.timebar{transition:opacity .9s ease}
 .intro__brand i:last-child{background:linear-gradient(90deg,var(--gold),rgba(240,185,107,0))}
 .intro__brand span{padding-left:.42em}
 .intro.is-welcome .intro__hello,.intro.is-welcome .intro__brand{opacity:1;transform:none}
-.intro.is-out .intro__hello,.intro.is-out .intro__brand,.intro.is-out .intro__scrim,.intro.is-out .intro__skip{opacity:0;transition-delay:0s;transition-duration:.6s}
+.intro.is-out .intro__hello,.intro.is-out .intro__brand,.intro.is-out .intro__scrim,.intro.is-out .intro__skip{opacity:0;transition-delay:0s;transition-duration:.35s}
 .intro.is-out{pointer-events:none}
 .intro.is-out .intro__logo{opacity:0;transition:transform 1s cubic-bezier(.7,0,.2,1),opacity .35s ease .75s}
 .intro__skip{position:absolute;right:max(16px,var(--pad));bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:2;display:inline-flex;align-items:center;gap:8px;
